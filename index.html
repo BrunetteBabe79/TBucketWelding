@@ -93,42 +93,117 @@
       transform: translateY(-5px);
     }
 
-    /* --- Floating Testimonials Marquee --- */
-    .testimonials-section {
+    /* --- Infinite Floating Testimonial Slider --- */
+    .testimonial-marquee-wrapper {
       overflow: hidden;
-      padding: 4rem 0;
+      width: 100%;
       position: relative;
+      padding: 40px 0;
+      background: rgba(20, 20, 18, 0.8);
     }
 
-    .testimonial-track {
+    .testimonial-marquee-wrapper::before,
+    .testimonial-marquee-wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Gradient Fade Edges */
+    .testimonial-marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(to right, var(--dark-bg), transparent);
+    }
+    
+    .testimonial-marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(to left, var(--dark-bg), transparent);
+    }
+
+    .testimonial-marquee-track {
       display: flex;
-      gap: 2rem;
+      gap: 24px;
       width: max-content;
-      animation: marquee 35s linear infinite;
+      animation: marqueeScroll 25s linear infinite;
     }
 
-    .testimonial-track:hover {
+    .testimonial-marquee-track:hover {
       animation-play-state: paused;
     }
 
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .testimonial-card {
+      background: rgba(28, 28, 26, 0.9);
+      border: 1px solid rgba(196, 98, 45, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      width: 340px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .testimonial-card {
-      min-width: 320px;
-      max-width: 400px;
-      background: rgba(255, 255, 255, 0.03);
-      border-left: 3px solid var(--rust-light);
-      padding: 1.5rem;
-      border-radius: 0 8px 8px 0;
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--rust-light);
+    }
+
+    .testimonial-card .quote {
+      color: var(--cream);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card .author {
+      color: var(--rust-light);
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Website Content Continues Here -->
+  <!-- Floating Testimonials Section -->
+  <section class="testimonial-marquee-wrapper">
+    <div class="testimonial-marquee-track">
+      <!-- Set 1 -->
+      <div class="testimonial-card">
+        <p class="quote">"T Bucket Welding built our custom steel entrance gate and barn. Top-notch Texas craftsmanship!"</p>
+        <div class="author">— LOCAL RANCHER</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Outstanding metal building construction. Fast, reliable, and rock-solid quality."</p>
+        <div class="author">— COMMERCIAL CLIENT</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Best welder in the Texas Hill Country. Highly recommend for custom barndominium work."</p>
+        <div class="author">— HOMEOWNER</div>
+      </div>
+
+      <!-- Duplicate Set for Seamless Looping -->
+      <div class="testimonial-card">
+        <p class="quote">"T Bucket Welding built our custom steel entrance gate and barn. Top-notch Texas craftsmanship!"</p>
+        <div class="author">— LOCAL RANCHER</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Outstanding metal building construction. Fast, reliable, and rock-solid quality."</p>
+        <div class="author">— COMMERCIAL CLIENT</div>
+      </div>
+      <div class="testimonial-card">
+        <p class="quote">"Best welder in the Texas Hill Country. Highly recommend for custom barndominium work."</p>
+        <div class="author">— HOMEOWNER</div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
