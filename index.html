@@ -6,6 +6,17 @@
   <meta name="description" content="Custom metal buildings, barndominiums, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.">
 <title>T Bucket Welding | Hill Country Metal Buildings</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+  /* Gentle Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+</style>
 <style>
   :root {
     --rust: #8B3A1A;
@@ -1168,6 +1179,64 @@ function handleSubmit(e) {
 
 
 
+<!-- Interactive Sparks Canvas Background -->
+<canvas id="sparks-canvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:0;"></canvas>
 
+<script>
+const canvas = document.getElementById('sparks-canvas');
+const ctx = canvas.getContext('2d');
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+
+const sparks = Array.from({ length: 35 }, () => ({
+  x: Math.random() * width,
+  y: Math.random() * height,
+  size: Math.random() * 2 + 1,
+  speedY: Math.random() * 0.8 + 0.2,
+  speedX: (Math.random() - 0.5) * 0.5,
+  opacity: Math.random() * 0.7 + 0.3
+}));
+
+function animateSparks() {
+  ctx.clearRect(0, 0, width, height);
+  sparks.forEach(s => {
+    s.y -= s.speedY;
+    s.x += s.speedX;
+    if (s.y < 0) s.y = height;
+    if (s.x < 0 || s.x > width) s.x = Math.random() * width;
+
+    ctx.fillStyle = `rgba(217, 83, 30, ${s.opacity})`;
+    ctx.shadowBlur = 6;
+    ctx.shadowColor = '#d9531e';
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animateSparks);
+}
+animateSparks();
+
+// Scroll Reveal Animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+  section.style.opacity = "0";
+  section.style.transform = "translateY(20px)";
+  section.style.transition = "all 0.6s ease-out";
+  observer.observe(section);
+});
+</script>
 </body>
 </html>
