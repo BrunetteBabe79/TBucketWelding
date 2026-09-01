@@ -6,11 +6,12 @@
   <meta name="description" content="Custom metal buildings, barndominiums, entrance gates, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.">
   <title>T Bucket Welding | Hill Country Metal Buildings & Custom Steel</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+  
   <style>
     /* --- Theme Variables --- */
     :root {
       --rust: #8B3A1A;
-      --rust-light: #C4622D;
+      --rust-light: #d9531e;
       --cream: #F5F0E8;
       --charcoal: #1C1C1A;
       --steel: #4A5568;
@@ -26,438 +27,245 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
     a {
       color: inherit;
       text-decoration: none;
     }
-    
     html {
       scroll-behavior: smooth;
     }
-
     body {
-      font-family: 'Barlow', sans-serif;
       background-color: var(--dark-bg);
       color: var(--cream);
+      font-family: 'Barlow', sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      letter-spacing: 0.5px;
+    /* --- Gentle Floating Animation --- */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
     }
 
-    .container {
+    /* --- Typography & Elements --- */
+    h1, h2, h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    section {
+      padding: 80px 20px;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
-    /* --- Navigation Bar --- */
+    /* --- Header / Nav --- */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(20, 20, 18, 0.9);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(212, 197, 169, 0.1);
-    }
-
-    .nav-wrapper {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
-    }
-
-    .logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--cream);
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--rust-light);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--rust-light);
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 1.5rem 60px;
-      background: linear-gradient(180deg, rgba(20,20,18,0.6) 0%, var(--dark-bg) 100%);
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero-subtitle {
-      font-family: 'Barlow Condensed', sans-serif;
-      color: var(--rust-light);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--sand);
-      margin-bottom: 2.5rem;
-    }
-
-    /* --- Buttons & Interactive Elements --- */
-    .btn-primary {
-      background: linear-gradient(135deg, var(--rust-light), var(--rust));
-      color: var(--cream);
-      padding: 1rem 2.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      box-shadow: 0 4px 15px rgba(139, 58, 26, 0.4);
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(196, 98, 45, 0.6);
-    }
-
-    /* --- Services Section --- */
-    .services {
-      padding: 100px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--rust-light);
-      font-family: 'Barlow Condensed', sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
+      padding: 20px 40px;
+      background: rgba(20, 20, 18, 0.9);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(212, 197, 169, 0.15);
-      border-radius: 8px;
-      padding: 2.5rem;
-      transition: border-color 0.3s ease, transform 0.3s ease;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(217, 83, 30, 0.2);
     }
-
-    .card:hover {
-      border-color: var(--rust-light);
-      transform: translateY(-5px);
-    }
-
-    .card h3 {
+    .logo {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--cream);
+      font-weight: 700;
+      color: var(--rust-light);
     }
 
-    .card p {
-      color: var(--sand);
-      font-size: 0.95rem;
-    }
-
-    /* --- Infinite Floating Testimonial Slider --- */
+    /* --- Testimonials Marquee --- */
     .testimonial-marquee-wrapper {
       overflow: hidden;
       width: 100%;
       position: relative;
-      padding: 60px 0;
-      background: rgba(28, 28, 26, 0.4);
-      border-top: 1px solid rgba(212, 197, 169, 0.08);
-      border-bottom: 1px solid rgba(212, 197, 169, 0.08);
+      padding: 40px 0;
+      margin: 40px 0;
     }
-
     .testimonial-marquee-wrapper::before,
     .testimonial-marquee-wrapper::after {
       content: "";
       position: absolute;
       top: 0;
-      width: 150px;
+      width: 120px;
       height: 100%;
       z-index: 2;
       pointer-events: none;
     }
-
     .testimonial-marquee-wrapper::before {
       left: 0;
       background: linear-gradient(to right, var(--dark-bg), transparent);
     }
-    
     .testimonial-marquee-wrapper::after {
       right: 0;
       background: linear-gradient(to left, var(--dark-bg), transparent);
     }
-
     .testimonial-marquee-track {
       display: flex;
       gap: 24px;
       width: max-content;
       animation: marqueeScroll 30s linear infinite;
     }
-
     .testimonial-marquee-track:hover {
       animation-play-state: paused;
     }
-
     .testimonial-card {
       background: var(--card-bg);
-      border: 1px solid rgba(196, 98, 45, 0.3);
+      border: 1px solid rgba(217, 83, 30, 0.3);
       border-radius: 12px;
       padding: 24px;
-      width: 360px;
+      width: 320px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
-
     .testimonial-card:hover {
       transform: translateY(-5px);
       border-color: var(--rust-light);
     }
-
     .testimonial-card .quote {
-      color: var(--cream);
+      color: #e5e5e5;
       font-size: 0.95rem;
       line-height: 1.5;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
-
     .testimonial-card .author {
       color: var(--rust-light);
       font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
-
     @keyframes marqueeScroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
-    }
-
-    /* --- Contact Form Section --- */
-    .contact {
-      padding: 100px 0;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 3rem;
-      border-radius: 8px;
-      border: 1px solid rgba(212, 197, 169, 0.15);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--sand);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      background: rgba(20, 20, 18, 0.8);
-      border: 1px solid rgba(212, 197, 169, 0.2);
-      border-radius: 4px;
-      color: var(--cream);
-      font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--rust-light);
-    }
-
-    /* --- Footer --- */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      border-top: 1px solid rgba(212, 197, 169, 0.1);
-      color: var(--sand);
-      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Header -->
   <header>
-    <div class="container nav-wrapper">
-      <div class="logo">T Bucket <span>Welding</span></div>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+    <div class="logo">T BUCKET WELDING</div>
+    <nav>
+      <a href="#testimonials" style="color: var(--cream);">Testimonials</a>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-subtitle">Burnet, TX • Texas Hill Country</div>
-      <h1>Handcrafted Steel & Metal Buildings</h1>
-      <p>Over 40 years of precision craftsmanship in custom entrance gates, barndominiums, metal buildings, and steel structural welding.</p>
-      <a href="#contact" class="btn-primary">Request a Quote</a>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title">
-        <p>Our Specializations</p>
-        <h2>Built to Last Generations</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Custom Steel Gates</h3>
-          <p>Heavy-gauge steel entrance gates featuring custom Texas limestone pillars, automated openers, and handcrafted ironwork.</p>
+  <!-- Animated Testimonials Section -->
+  <section id="testimonials">
+    <h2 style="text-align: center; color: var(--rust-light); margin-bottom: 20px;">What Our Clients Say</h2>
+    
+    <div class="testimonial-marquee-wrapper">
+      <div class="testimonial-marquee-track">
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <p class="quote">“Terry framed our shop in eight days and every seam looks like it belongs in a museum.”</p>
+          <span class="author">MARK R. — BURNET, TX</span>
         </div>
-        <div class="card">
-          <h3>Metal Buildings & Barns</h3>
-          <p>Engineered structural steel buildings, agricultural barns, and workshops built specifically for Hill Country terrain.</p>
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <p class="quote">“We interviewed three contractors for our barndominium. Terry was the only one who showed up every time.”</p>
+          <span class="author">DANA K. — SPICEWOOD, TX</span>
         </div>
-        <div class="card">
-          <h3>Barndominiums & Carports</h3>
-          <p>Custom structural framing, steel carports, RV covers, and barndominium shells built with precision engineering.</p>
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <p class="quote">“Our RV cover has taken two hailstorms without a scratch. This isn't a kit — it's a structure.”</p>
+          <span class="author">WES H. — DRIFTWOOD, TX</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Floating Testimonials Section -->
-  <section id="testimonials" class="testimonial-marquee-wrapper">
-    <div class="testimonial-marquee-track">
-      <!-- Set 1 -->
-      <div class="testimonial-card">
-        <p class="quote">"T Bucket Welding built our custom steel entrance gate and barn. Top-notch Texas craftsmanship!"</p>
-        <div class="author">— LOCAL RANCHER</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Outstanding metal building construction. Fast, reliable, and rock-solid quality."</p>
-        <div class="author">— COMMERCIAL CLIENT</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Best welder in the Texas Hill Country. Highly recommend for custom barndominium work."</p>
-        <div class="author">— HOMEOWNER</div>
-      </div>
-
-      <!-- Duplicate Set for Seamless Looping -->
-      <div class="testimonial-card">
-        <p class="quote">"T Bucket Welding built our custom steel entrance gate and barn. Top-notch Texas craftsmanship!"</p>
-        <div class="author">— LOCAL RANCHER</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Outstanding metal building construction. Fast, reliable, and rock-solid quality."</p>
-        <div class="author">— COMMERCIAL CLIENT</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Best welder in the Texas Hill Country. Highly recommend for custom barndominium work."</p>
-        <div class="author">— HOMEOWNER</div>
+        <!-- Card 4 -->
+        <div class="testimonial-card">
+          <p class="quote">“Forty years of experience shows in the small things — clean finish work and square frames.”</p>
+          <span class="author">COLLEEN P. — MARBLE FALLS, TX</span>
+        </div>
+        
+        <!-- Duplicated Cards for Seamless Scroll Loop -->
+        <div class="testimonial-card">
+          <p class="quote">“Terry framed our shop in eight days and every seam looks like it belongs in a museum.”</p>
+          <span class="author">MARK R. — BURNET, TX</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“We interviewed three contractors for our barndominium. Terry was the only one who showed up every time.”</p>
+          <span class="author">DANA K. — SPICEWOOD, TX</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“Our RV cover has taken two hailstorms without a scratch. This isn't a kit — it's a structure.”</p>
+          <span class="author">WES H. — DRIFTWOOD, TX</span>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">“Forty years of experience shows in the small things — clean finish work and square frames.”</p>
+          <span class="author">COLLEEN P. — MARBLE FALLS, TX</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
-        <p>Get in Touch</p>
-        <h2>Start Your Project Today</h2>
-      </div>
-      <form class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email or Phone</label>
-          <input type="text" id="email" placeholder="Your Contact Info" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Project Details</label>
-          <textarea id="message" rows="5" placeholder="Tell us about your gate, building, or welding project..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Submit Request</button>
-      </form>
-    </div>
-  </section>
+  <!-- Floating Sparks Background Canvas -->
+  <canvas id="sparks-canvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:-1;"></canvas>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 T Bucket Welding • Burnet, Texas • All Rights Reserved</p>
-    </div>
-  </footer>
+  <script>
+    /* Floating Sparks particle engine */
+    const canvas = document.getElementById('sparks-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
 
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const sparks = Array.from({ length: 35 }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      size: Math.random() * 2 + 1,
+      speedY: Math.random() * 0.8 + 0.2,
+      speedX: (Math.random() - 0.5) * 0.5,
+      opacity: Math.random() * 0.7 + 0.3
+    }));
+
+    function animateSparks() {
+      ctx.clearRect(0, 0, width, height);
+      sparks.forEach(s => {
+        s.y -= s.speedY;
+        s.x += s.speedX;
+        if (s.y < 0) s.y = height;
+        if (s.x < 0 || s.x > width) s.x = Math.random() * width;
+
+        ctx.fillStyle = `rgba(217, 83, 30, ${s.opacity})`;
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = '#d9531e';
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(animateSparks);
+    }
+    animateSparks();
+
+    /* Scroll Observer */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = "0";
+      section.style.transform = "translateY(20px)";
+      section.style.transition = "all 0.6s ease-out";
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
