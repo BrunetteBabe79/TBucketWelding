@@ -3,8 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Custom metal buildings, barndominiums, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.">
 <title>T Bucket Welding | Hill Country Metal Buildings</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* Gentle Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+</style>
 <style>
   :root {
     --rust: #8B3A1A;
@@ -776,7 +789,45 @@
   }
 
 </style>
-</head>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "GeneralContractor"],
+  "name": "T Bucket Welding",
+  "url": "https://t-bucket-welding.vercel.app",
+  "telephone": "+1-512-553-6385",
+  "priceRange": "$$",
+  "foundingDate": "1984",
+  "description": "Custom metal buildings, barndominiums, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Burnet",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Burnet" },
+    { "@type": "City", "name": "Marble Falls" },
+    { "@type": "City", "name": "Horseshoe Bay" },
+    { "@type": "City", "name": "Kingsland" },
+    { "@type": "City", "name": "Spicewood" },
+    { "@type": "AdministrativeArea", "name": "Texas Hill Country" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Metal Building & Welding Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Buildings", "description": "Shops, warehouses, and storage facilities built to last." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Barndominiums", "description": "Custom residential weld-up barndominiums." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Carports & Covers", "description": "Heavy-duty metal carports and equipment covers." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "RV & Boat Storage", "description": "Custom storage structures for RVs, boats, and equipment." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Weld-Up Structures", "description": "On-site fabricated structures, no prefab kits." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Fabrication", "description": "Specialty steel builds and custom welding projects." } }
+    ]
+  }
+}
+</script>
+<</head>
 <body>
 
 <!-- NAV -->
@@ -1014,6 +1065,56 @@
   </div>
 </section>
 
+<!-- ON THE JOB (new photo + clip from current job) -->
+<style>
+.tbw-job{padding:4rem 0;background:var(--dark-bg);position:relative;z-index:1}
+.tbw-job-inner{max-width:1200px;margin:0 auto;padding:0 2rem}
+.tbw-job-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:4px;margin-top:2rem}
+.tbw-tile{position:relative;overflow:hidden;background:#000;min-height:300px}
+.tbw-tile img,.tbw-tile video{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.tbw-cap{position:absolute;left:0;right:0;bottom:0;padding:1.2rem 1.4rem;background:linear-gradient(transparent,rgba(20,20,18,.92))}
+.tbw-cap .k{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rust-light);margin-bottom:4px}
+.tbw-cap .t{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream)}
+@media(max-width:800px){.tbw-job-grid{grid-template-columns:1fr}.tbw-tile{min-height:260px}}
+.tbw-rev{padding:4rem 0;background:var(--charcoal);overflow:hidden;position:relative;z-index:1}
+.tbw-rev-head{max-width:1200px;margin:0 auto 2.2rem;padding:0 2rem}
+.tbw-track{display:flex;gap:1.4rem;width:max-content;animation:tbwScroll 75s linear infinite}
+.tbw-rev:hover .tbw-track{animation-play-state:paused}
+.tbw-card{width:400px;max-width:85vw;background:var(--dark-bg);border:1px solid rgba(196,98,45,.35);border-top:3px solid var(--rust-light);padding:1.6rem}
+.tbw-card q{display:block;quotes:none;font-size:.95rem;line-height:1.6;color:var(--cream);margin-bottom:1rem;font-weight:300}
+.tbw-card cite{font-style:normal;font-family:'Barlow Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:.75rem;color:var(--rust-light)}
+@keyframes tbwScroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tbw-track{animation:none}}
+</style>
+
+<section class="tbw-job" id="current-job">
+  <div class="tbw-job-inner">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--rust-light);margin-bottom:.75rem;">On the Job</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--cream);line-height:1.15;">Steel going up<br><em style="font-style:italic;color:var(--rust-light);">right now.</em></h2>
+    <div class="tbw-job-grid">
+      <div class="tbw-tile"><img src="images/job-metal-building.jpg" alt="Metal building with two bays and a walk door, built by T Bucket Welding" loading="lazy"><div class="tbw-cap"><div class="k">Metal Building</div><div class="t">Two-bay shop, Hill Country</div></div></div>
+      <div class="tbw-tile"><video src="images/build-lift.mp4" poster="images/build-lift-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Crew lifting wall panels into place with a telehandler"></video><div class="tbw-cap"><div class="k">On Location</div><div class="t">Panels going up</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tbw-rev" id="reviews">
+  <div class="tbw-rev-head">
+    <p style="font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;color:var(--rust-light);margin-bottom:.75rem;">Google Reviews</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--cream);line-height:1.15;">What the <em style="font-style:italic;color:var(--rust-light);">neighbors say.</em></h2>
+  </div>
+  <div class="tbw-track" id="tbwTrack"></div>
+</section>
+<script>
+/* Add REAL reviews here (copy from Google). */
+const TBW_REVIEWS = [
+  { q: "Terry and his crew built us a custom metal building for our property and the quality is outstanding. He was upfront about pricing from the start, showed up when he said he would, and the workmanship is top-notch — clean welds, solid structure, built to last. You can tell he takes pride in his work. Highly recommend T Bucket Welding for anyone in the Hill Country needing a metal building done right.", n: "D. Mitchell" },
+  { q: "We had Terry put up a metal building on our property and couldn’t be happier. He walked us through the whole process, answered every question, and the finished building looks even better than we imagined. Fair pricing, great communication, and real craftsmanship. If you need a metal building built right, T Bucket Welding is who to call.", n: "F. Saylor" },
+  { q: "Terry welded some custom gates and fencing for our property and they turned out better than I expected. Good communication, honest about timeline, and the craftsmanship is top notch. Been looking for a reliable welder in this area for years, glad we found him. Highly recommend.", n: "S. Stilson" }
+];
+(function(){const t=document.getElementById('tbwTrack');for(let k=0;k<2;k++)TBW_REVIEWS.forEach(r=>{const d=document.createElement('div');d.className='tbw-card';d.innerHTML='<q></q><cite></cite>';d.querySelector('q').textContent='“'+r.q+'”';d.querySelector('cite').textContent='— '+r.n+' • Google review';t.appendChild(d);});})();
+</script>
+
 <!-- CONTACT -->
 <section class="contact rustic-bg" id="contact">
   <div class="contact-inner">
@@ -1024,7 +1125,7 @@
 
       <div class="contact-detail">
         <span class="contact-label">Phone</span>
-        <span class="contact-value">(512) 553-6385</span>
+        <span class="contact-value"><a href="tel:+15125536385" style="color:inherit">(512) 553-6385</a></span>
       </div>
       <div class="contact-detail">
         <span class="contact-label">Service Area</span>
@@ -1129,6 +1230,108 @@ function handleSubmit(e) {
 
 
 
+<!-- Interactive Sparks Canvas Background -->
+<canvas id="sparks-canvas" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:0;"></canvas>
 
+<script>
+const canvas = document.getElementById('sparks-canvas');
+const ctx = canvas.getContext('2d');
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+window.addEventListener('resize', () => {
+  width = canvas.width = window.innerWidth;
+  height = canvas.height = window.innerHeight;
+});
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let sparks = [];
+function spawn(x, y, burst) {
+  sparks.push({
+    x, y,
+    vx: (Math.random() - 0.5) * (burst ? 7 : 1.2),
+    vy: burst ? -(Math.random() * 5 + 1.5) : -(Math.random() * 1.2 + 0.4),
+    g: burst ? 0.14 : -0.01,
+    life: 1,
+    decay: burst ? 0.012 + Math.random() * 0.018 : 0.004 + Math.random() * 0.006,
+    size: burst ? Math.random() * 1.6 + 0.6 : Math.random() * 1.4 + 0.5,
+    burst
+  });
+}
+function animateSparks() {
+  ctx.clearRect(0, 0, width, height);
+  if (reduceMotion) return;
+  const vis = Math.max(0, 1 - window.scrollY / (height * 0.9));
+  const small = width < 760;
+  const len = small ? height * 0.2 : Math.min(height * 0.42, 400);
+  const rods = small ? [
+    { bx: width * 0.02, by: height + 10, dir: 1, lean: 0.16, len: len },
+    { bx: width * 0.98, by: height + 10, dir: -1, lean: 0.16, len: len }
+  ] : [
+    { bx: width * 0.004, by: height + 10, dir: 1, lean: 0.07, len: len * 0.55 },
+    { bx: width * 0.99, by: height + 10, dir: -1, lean: 0.34, len: len }
+  ];
+  const flick = 0.75 + Math.random() * 0.25;
+  rods.forEach(r => {
+    r.tx = r.bx + r.dir * Math.sin(r.lean) * r.len;
+    r.ty = r.by - Math.cos(r.lean) * r.len;
+    if (vis > 0.05) {
+      // the rod
+      const g = ctx.createLinearGradient(r.bx, r.by, r.tx, r.ty);
+      g.addColorStop(0, 'rgba(70,70,70,' + (0.9 * vis) + ')');
+      g.addColorStop(0.7, 'rgba(160,160,160,' + (0.9 * vis) + ')');
+      g.addColorStop(1, 'rgba(230,190,140,' + (0.95 * vis) + ')');
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = g;
+      ctx.lineWidth = small ? 4 : 7;
+      ctx.beginPath(); ctx.moveTo(r.bx, r.by); ctx.lineTo(r.tx, r.ty); ctx.stroke();
+      // the arc glow
+      const rad = (small ? 26 : 46) * flick;
+      const gl = ctx.createRadialGradient(r.tx, r.ty, 0, r.tx, r.ty, rad);
+      gl.addColorStop(0, 'rgba(255,255,255,' + vis + ')');
+      gl.addColorStop(0.25, 'rgba(255,214,130,' + (0.85 * vis) + ')');
+      gl.addColorStop(0.6, 'rgba(217,83,30,' + (0.4 * vis) + ')');
+      gl.addColorStop(1, 'rgba(217,83,30,0)');
+      ctx.fillStyle = gl;
+      ctx.beginPath(); ctx.arc(r.tx, r.ty, rad, 0, Math.PI * 2); ctx.fill();
+      // weld sparks
+      const n = small ? 2 : 4;
+      for (let i = 0; i < n; i++) spawn(r.tx, r.ty, true);
+    }
+  });
+  // a few slow embers drifting up from the bottom
+  if (Math.random() < 0.35) spawn(Math.random() * width, height + 4, false);
+  sparks = sparks.filter(p => p.life > 0 && p.y < height + 30);
+  sparks.forEach(p => {
+    p.x += p.vx; p.y += p.vy; p.vy += p.g; p.life -= p.decay;
+    const a = Math.max(p.life, 0);
+    if (p.burst) {
+      ctx.strokeStyle = 'rgba(255,' + Math.floor(150 + a * 90) + ',' + Math.floor(50 + a * 90) + ',' + a + ')';
+      ctx.lineWidth = p.size;
+      ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p.x - p.vx * 1.6, p.y - p.vy * 1.6); ctx.stroke();
+    } else {
+      ctx.fillStyle = 'rgba(217,83,30,' + (a * 0.7) + ')';
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+    }
+  });
+  requestAnimationFrame(animateSparks);
+}
+animateSparks();
+
+// Scroll Reveal Animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section').forEach(section => {
+  section.style.opacity = "0";
+  section.style.transform = "translateY(20px)";
+  section.style.transition = "all 0.6s ease-out";
+  observer.observe(section);
+});
+</script>
 </body>
 </html>
