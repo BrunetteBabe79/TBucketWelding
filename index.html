@@ -1,566 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Custom metal buildings, barndominiums, entrance gates, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.">
-  <title>T Bucket Welding | Hill Country Metal Buildings & Custom Steel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
-  <style>
-    /* --- Theme Variables --- */
-    :root {
-      --rust: #8B3A1A;
-      --rust-light: #C4622D;
-      --cream: #F5F0E8;
-      --charcoal: #181818;
-      --steel: #4A5568;
-      --sand: #D4C5A9;
-      --white: #FFFFFF;
-      --dark-bg: #0F0F0E;
-      --card-bg: #1E1E1C;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T Bucket Welding | Metal Buildings & Custom Steel in Burnet, TX</title>
+<meta name="description" content="Custom metal buildings, barndominium shells, gates, carports and structural welding in the Texas Hill Country. 40+ years of hands-on craftsmanship. Call or request a free quote.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Barlow:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"GeneralContractor","name":"T Bucket Welding","telephone":"+1-512-553-6385","areaServed":"Texas Hill Country","address":{"@type":"PostalAddress","addressLocality":"Burnet","addressRegion":"TX","addressCountry":"US"},"description":"Custom metal buildings, barndominium shells, gates, carports and structural welding."}
+</script>
+<style>
+:root{--charcoal:#0c0c0d;--card:#17171a;--ember:#ff5a1f;--ember-deep:#c73e0a;--gold:#e8b04a;--steel:#9aa3ad;--cream:#f4efe6}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--charcoal);color:var(--cream);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;line-height:1.1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.25rem}
+.script{font-family:'Sacramento',cursive;color:var(--gold);font-size:2rem}
 
-    /* --- Global Resets & Typography --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(12,12,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,90,31,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.5rem;letter-spacing:2px;text-transform:uppercase}
+.brand b{color:var(--ember)}
+.nav ul{display:flex;gap:1.6rem;list-style:none}
+.nav ul a{font-size:.85rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--steel);transition:color .2s}
+.nav ul a:hover{color:var(--ember)}
+.call{background:var(--ember);color:#fff;padding:.55rem 1.1rem;border-radius:4px;font-family:'Oswald',sans-serif;letter-spacing:1px;font-size:.95rem;white-space:nowrap}
+@media(max-width:760px){.nav ul{display:none}}
 
-    body {
-      font-family: 'Barlow', sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 1.25rem 70px;overflow:hidden;
+background:radial-gradient(ellipse at 50% 100%,rgba(255,90,31,.28),transparent 60%),radial-gradient(ellipse at 50% 120%,#3a1305,transparent 70%),#0c0c0d}
+#sparks{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.rod{position:absolute;bottom:-10px;width:10px;height:62%;z-index:1;background:linear-gradient(#b9b9b9,#6d6d6d 60%,#3a3a3a);border-radius:5px;transform-origin:bottom center;opacity:.9}
+.rod::after{content:"";position:absolute;top:-6px;left:50%;width:34px;height:34px;transform:translateX(-50%);background:radial-gradient(circle,#fff 0%,#ffd27a 25%,rgba(255,90,31,.7) 55%,transparent 72%);animation:arc .12s infinite alternate;border-radius:50%}
+.rod.l{left:6%;transform:rotate(18deg)}
+.rod.r{right:6%;transform:rotate(-18deg)}
+.rod.r::after{animation-delay:.06s}
+@keyframes arc{from{opacity:.75;transform:translateX(-50%) scale(.85)}to{opacity:1;transform:translateX(-50%) scale(1.2)}}
+.hero .in{position:relative;z-index:2;max-width:820px}
+.eyebrow{font-family:'Oswald',sans-serif;color:var(--ember);letter-spacing:4px;text-transform:uppercase;font-size:.95rem;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);margin-bottom:1.2rem;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hero h1 em{font-style:normal;color:var(--ember)}
+.hero p.lead{font-size:1.15rem;color:#d9d1c3;max-width:620px;margin:0 auto 2rem}
+.btns{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:.95rem 2rem;border-radius:4px;font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:1rem;border:2px solid var(--ember);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn.solid{background:linear-gradient(135deg,var(--ember),var(--ember-deep));color:#fff;box-shadow:0 6px 24px rgba(255,90,31,.35)}
+.btn.ghost{background:transparent;color:var(--cream)}
+.btn:hover{transform:translateY(-3px)}
+.trust{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;color:var(--steel);font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase}
+.trust span::before{content:"◆ ";color:var(--ember)}
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      letter-spacing: 0.5px;
-    }
+/* banner */
+.banner{background:var(--ember-deep);overflow:hidden;border-block:1px solid rgba(255,255,255,.15)}
+.banner-track{display:flex;width:max-content;animation:fly 38s linear infinite;gap:3rem;padding:.8rem 0}
+.banner:hover .banner-track{animation-play-state:paused}
+.banner-track span{font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;font-size:1rem}
+.banner-track span::after{content:"  🔥";}
+@keyframes fly{to{transform:translateX(-50%)}}
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+section{padding:90px 0}
+.head{text-align:center;margin-bottom:3rem}
+.head p{color:var(--ember);font-family:'Oswald',sans-serif;letter-spacing:3px;text-transform:uppercase;font-size:.9rem}
+.head h2{font-size:clamp(2rem,4vw,3rem);margin-top:.4rem}
 
-    /* --- Navigation Bar --- */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(15, 15, 14, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid rgba(212, 197, 169, 0.15);
-    }
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
+.card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-top:3px solid var(--ember);border-radius:8px;padding:1.8rem;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--ember)}
+.card h3{font-size:1.35rem;margin-bottom:.6rem}
+.card p{color:#b9b3a8;font-size:.97rem}
 
-    .nav-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 80px;
-    }
+/* work */
+.work{background:#111113}
+.work-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:1.4rem}
+@media(max-width:800px){.work-grid{grid-template-columns:1fr}}
+.tile{position:relative;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#000;min-height:280px}
+.tile img,.tile video{width:100%;height:100%;object-fit:cover;display:block}
+.tile .cap{position:absolute;inset:auto 0 0 0;padding:1rem 1.1rem;background:linear-gradient(transparent,rgba(0,0,0,.88));font-family:'Oswald',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:.95rem;opacity:0;transition:opacity .3s}
+.tile:hover .cap{opacity:1}
+@media(hover:none){.tile .cap{opacity:1}}
 
-    .logo {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--cream);
-      text-transform: uppercase;
-    }
+/* reviews */
+.reviews{overflow:hidden;padding:80px 0}
+.rtrack{display:flex;gap:1.4rem;width:max-content;animation:fly 70s linear infinite}
+.reviews:hover .rtrack{animation-play-state:paused}
+.rcard{width:400px;max-width:85vw;background:var(--card);border:1px solid rgba(255,90,31,.3);border-radius:10px;padding:1.5rem}
+.rcard q{display:block;font-size:.95rem;margin-bottom:1rem;quotes:none}
+.rcard cite{font-style:normal;color:var(--ember);font-size:.8rem;letter-spacing:1.5px;font-weight:600;text-transform:uppercase}
 
-    .logo span {
-      color: var(--rust-light);
-    }
+/* contact */
+.contact-box{max-width:620px;margin:0 auto;background:var(--card);padding:2.4rem;border-radius:10px;border:1px solid rgba(255,90,31,.3)}
+.f{margin-bottom:1.2rem}
+.f label{display:block;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--steel);margin-bottom:.4rem}
+.f input,.f textarea,.f select{width:100%;padding:.85rem;background:#0c0c0d;border:1px solid rgba(255,255,255,.15);border-radius:4px;color:var(--cream);font:inherit}
+.f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--ember)}
+.hp{position:absolute;left:-9999px}
+#status{margin-top:1rem;padding:1rem;border-radius:6px;display:none;text-align:center}
+#status.ok{display:block;background:rgba(60,170,90,.15);border:1px solid #3caa5a}
+#status.err{display:block;background:rgba(220,60,40,.15);border:1px solid #dc3c28}
+.phone-big{text-align:center;margin-top:1.6rem;font-family:'Oswald',sans-serif;font-size:1.6rem;letter-spacing:2px}
+.phone-big small{display:block;font-family:'Barlow',sans-serif;font-size:.85rem;color:var(--steel);letter-spacing:1px}
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--rust-light);
-    }
-
-    /* --- Hero Section --- */
-    .hero {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 140px 1.5rem 80px;
-      background: linear-gradient(180deg, rgba(15,15,14,0.75) 0%, var(--dark-bg) 100%),
-                  url('hero-bg.jpg') center/cover no-repeat;
-      position: relative;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .hero-subtitle {
-      font-family: 'Barlow Condensed', sans-serif;
-      color: var(--rust-light);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--sand);
-      margin-bottom: 2.5rem;
-    }
-
-    /* --- Buttons --- */
-    .btn-primary {
-      background: linear-gradient(135deg, var(--rust-light), var(--rust));
-      color: var(--cream);
-      padding: 1rem 2.5rem;
-      border-radius: 4px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block;
-      box-shadow: 0 4px 15px rgba(139, 58, 26, 0.4);
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(196, 98, 45, 0.6);
-    }
-
-    /* --- Section Headings --- */
-    .section-title {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--rust-light);
-      font-family: 'Barlow Condensed', sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* --- Services Section --- */
-    .services {
-      padding: 100px 0;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid rgba(212, 197, 169, 0.15);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: border-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: var(--rust-light);
-      transform: translateY(-5px);
-    }
-
-    .card-img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-
-    .card-body {
-      padding: 2rem;
-    }
-
-    .card-body h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      color: var(--cream);
-    }
-
-    .card-body p {
-      color: var(--sand);
-      font-size: 0.95rem;
-    }
-
-    /* --- Photo Gallery Section --- */
-    .gallery {
-      padding: 80px 0;
-      background: rgba(24, 24, 24, 0.5);
-      border-top: 1px solid rgba(212, 197, 169, 0.1);
-      border-bottom: 1px solid rgba(212, 197, 169, 0.1);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-item {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      height: 260px;
-      border: 1px solid rgba(212, 197, 169, 0.15);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      padding: 1rem;
-      color: var(--cream);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    /* --- Infinite Floating Testimonial Slider --- */
-    .testimonial-marquee-wrapper {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-      padding: 80px 0;
-    }
-
-    .testimonial-marquee-wrapper::before,
-    .testimonial-marquee-wrapper::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      width: 150px;
-      height: 100%;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .testimonial-marquee-wrapper::before {
-      left: 0;
-      background: linear-gradient(to right, var(--dark-bg), transparent);
-    }
-    
-    .testimonial-marquee-wrapper::after {
-      right: 0;
-      background: linear-gradient(to left, var(--dark-bg), transparent);
-    }
-
-    .testimonial-marquee-track {
-      display: flex;
-      gap: 24px;
-      width: max-content;
-      animation: marqueeScroll 30s linear infinite;
-    }
-
-    .testimonial-marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    .testimonial-card {
-      background: var(--card-bg);
-      border: 1px solid rgba(196, 98, 45, 0.3);
-      border-radius: 12px;
-      padding: 24px;
-      width: 360px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--rust-light);
-    }
-
-    .testimonial-card .quote {
-      color: var(--cream);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 16px;
-    }
-
-    .testimonial-card .author {
-      color: var(--rust-light);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-
-    @keyframes marqueeScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* --- Contact Form Section --- */
-    .contact {
-      padding: 100px 0;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--card-bg);
-      padding: 3rem;
-      border-radius: 8px;
-      border: 1px solid rgba(212, 197, 169, 0.15);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--sand);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.8rem;
-      background: rgba(15, 15, 14, 0.8);
-      border: 1px solid rgba(212, 197, 169, 0.2);
-      border-radius: 4px;
-      color: var(--cream);
-      font-family: inherit;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--rust-light);
-    }
-
-    /* --- Footer --- */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      border-top: 1px solid rgba(212, 197, 169, 0.1);
-      color: var(--sand);
-      font-size: 0.85rem;
-    }
-  </style>
+footer{padding:2.2rem 0;text-align:center;color:var(--steel);font-size:.85rem;border-top:1px solid rgba(255,255,255,.08)}
+.sticky{display:none}
+@media(max-width:760px){.sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--ember);color:#fff;text-align:center;padding:.9rem;font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase}body{padding-bottom:52px}}
+@media(max-width:760px){.rod{height:34%;opacity:.55}.rod.l{left:-2%}.rod.r{right:-2%}}
+@media(prefers-reduced-motion:reduce){.banner-track,.rtrack,.rod::after{animation:none}}
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <header>
-    <div class="container nav-wrapper">
-      <div class="logo">T Bucket <span>Welding</span></div>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">T Bucket <b>Welding</b></a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="call" href="tel:+15125536385">512-553-METL</a>
+  </div>
+</header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-subtitle">Burnet, TX • Texas Hill Country</div>
-      <h1>Handcrafted Steel & Metal Buildings</h1>
-      <p>Over 40 years of precision craftsmanship in custom entrance gates, barndominiums, metal buildings, and steel structural welding.</p>
-      <a href="#contact" class="btn-primary">Request a Quote</a>
+<section class="hero" id="top">
+  <canvas id="sparks"></canvas>
+  <div class="rod l"></div><div class="rod r"></div>
+  <div class="in">
+    <div class="eyebrow">Burnet • Texas Hill Country</div>
+    <h1>Built by hand.<br><em>Built to last.</em></h1>
+    <p class="lead">Metal buildings, barndominium shells, gates, carports and structural welding from a welder with 40+ years behind the stinger.</p>
+    <div class="btns">
+      <a class="btn solid" href="#contact">Get a Free Quote</a>
+      <a class="btn ghost" href="tel:+15125536385">Call 512-553-METL</a>
     </div>
-  </section>
+    <div class="trust"><span>40+ Years Welding</span><span>Hill Country Owned</span><span>Free Quotes</span></div>
+  </div>
+</section>
 
-  <!-- Services Section with Image Placeholders -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title">
-        <p>Our Specializations</p>
-        <h2>Built to Last Generations</h2>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <img src="gate-service.jpg" alt="Custom Steel Entrance Gate" class="card-img">
-          <div class="card-body">
-            <h3>Custom Steel Gates</h3>
-            <p>Heavy-gauge steel entrance gates featuring custom Texas limestone pillars, automated openers, and handcrafted ironwork.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="building-service.jpg" alt="Metal Building Frame" class="card-img">
-          <div class="card-body">
-            <h3>Metal Buildings & Barns</h3>
-            <p>Engineered structural steel buildings, agricultural barns, and workshops built specifically for Hill Country terrain.</p>
-          </div>
-        </div>
-        <div class="card">
-          <img src="barndo-service.jpg" alt="Barndominium Framing" class="card-img">
-          <div class="card-body">
-            <h3>Barndominiums & Carports</h3>
-            <p>Custom structural framing, steel carports, RV covers, and barndominium shells built with precision engineering.</p>
-          </div>
-        </div>
-      </div>
+<div class="banner" aria-label="Highlights">
+  <div class="banner-track" id="bannerTrack"></div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head"><p>What we build</p><h2>Steel work done right</h2></div>
+    <div class="grid">
+      <div class="card"><h3>Metal Buildings</h3><p>Shops, barns and workshops engineered for Hill Country ground and weather, from slab to final panel.</p></div>
+      <div class="card"><h3>Barndominium Shells</h3><p>Structural steel framing and shells ready for your finish-out crew.</p></div>
+      <div class="card"><h3>Gates &amp; Ironwork</h3><p>Heavy-gauge entrance gates and custom fabrication built to hang straight for decades.</p></div>
+      <div class="card"><h3>Carports &amp; Covers</h3><p>RV covers, equipment covers and carports sized to your property.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Project Gallery Showcase -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <div class="section-title">
-        <p>Portfolio Showcase</p>
-        <h2>Recent Texas Hill Country Projects</h2>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="project1.jpg" alt="Custom Steel Gate with Limestone Pillars">
-          <div class="gallery-overlay">20ft Custom Steel Entrance Gate</div>
-        </div>
-        <div class="gallery-item">
-          <img src="project2.jpg" alt="Barndominium Structural Frame">
-          <div class="gallery-overlay">Spicewood Barndominium Shell</div>
-        </div>
-        <div class="gallery-item">
-          <img src="project3.jpg" alt="Heavy Metal Barn Construction">
-          <div class="gallery-overlay">Burnet Commercial Steel Workshop</div>
-        </div>
-        <div class="gallery-item">
-          <img src="project4.jpg" alt="Steel RV Cover Building">
-          <div class="gallery-overlay">Custom Steel RV Cover & Carport</div>
-        </div>
-      </div>
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="head"><p>On the job</p><h2>Real jobs. Real steel.</h2></div>
+    <div class="work-grid">
+      <div class="tile"><img src="images/job-metal-building.jpg" alt="Finished metal building with two bays and walk door on a Hill Country job site" loading="lazy"><div class="cap">Two-bay metal building, Hill Country</div></div>
+      <div class="tile"><video src="images/build-lift.mp4" poster="images/build-lift-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Crew lifting wall panels into place with a telehandler"></video><div class="cap">Panels going up</div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Floating Testimonials Marquee Section -->
-  <section id="testimonials" class="testimonial-marquee-wrapper">
-    <div class="section-title">
-      <p>Client Feedback</p>
-      <h2>What Our Clients Say</h2>
-    </div>
-    <div class="testimonial-marquee-track">
-      <!-- Set 1 -->
-      <div class="testimonial-card">
-        <p class="quote">"Terry framed our shop in eight days and every seam looks like it belongs in a museum."</p>
-        <div class="author">— MARK R., BURNET, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"We interviewed three contractors for our barndominium. Terry was the only one who showed up every time."</p>
-        <div class="author">— DANA K., SPICEWOOD, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Our RV cover has taken two hailstorms without a scratch. This isn't a kit — it's a structure."</p>
-        <div class="author">— WES H., DRIFTWOOD, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Forty years of experience shows in the small things — clean finish work and square frames."</p>
-        <div class="author">— COLLEEN P., MARBLE FALLS, TX</div>
-      </div>
+<section class="reviews" id="reviews" style="display:none">
+  <div class="wrap"><div class="head"><p>Customer reviews</p><h2>What neighbors say</h2></div></div>
+  <div class="rtrack" id="rtrack"></div>
+</section>
 
-      <!-- Duplicate Set for Seamless Looping -->
-      <div class="testimonial-card">
-        <p class="quote">"Terry framed our shop in eight days and every seam looks like it belongs in a museum."</p>
-        <div class="author">— MARK R., BURNET, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"We interviewed three contractors for our barndominium. Terry was the only one who showed up every time."</p>
-        <div class="author">— DANA K., SPICEWOOD, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Our RV cover has taken two hailstorms without a scratch. This isn't a kit — it's a structure."</p>
-        <div class="author">— WES H., DRIFTWOOD, TX</div>
-      </div>
-      <div class="testimonial-card">
-        <p class="quote">"Forty years of experience shows in the small things — clean finish work and square frames."</p>
-        <div class="author">— COLLEEN P., MARBLE FALLS, TX</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Form Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-title">
-        <p>Get in Touch</p>
-        <h2>Start Your Project Today</h2>
-      </div>
-      <form class="contact-form">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email or Phone</label>
-          <input type="text" id="email" placeholder="Your Contact Info" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Project Details</label>
-          <textarea id="message" rows="5" placeholder="Tell us about your gate, building, or welding project..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%;">Submit Request</button>
+<section id="contact">
+  <div class="wrap">
+    <div class="head"><p>Let's talk steel</p><h2>Request a free quote</h2></div>
+    <div class="contact-box">
+      <form id="quote" action="https://formspree.io/f/xppaplbj" method="POST">
+        <div class="f"><label for="name">Name</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="f"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" required autocomplete="tel"></div>
+        <div class="f"><label for="email">Email (optional)</label><input id="email" name="email" type="email" autocomplete="email"></div>
+        <div class="f"><label for="type">What do you need?</label>
+          <select id="type" name="project_type"><option>Metal building</option><option>Barndominium shell</option><option>Gate / ironwork</option><option>Carport / cover</option><option>Welding / repair</option><option>Not sure yet</option></select></div>
+        <div class="f"><label for="msg">Project details</label><textarea id="msg" name="message" rows="4" placeholder="Size, location, timeline..."></textarea></div>
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New quote request - T Bucket Welding website">
+        <button class="btn solid" type="submit" style="width:100%">Send my request</button>
+        <div id="status" role="status"></div>
       </form>
+      <div class="phone-big"><a href="tel:+15125536385">512-553-METL</a><small>(512) 553-6385 • Prefer to talk? Call or text.</small></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 T Bucket Welding • Burnet, Texas • All Rights Reserved</p>
-    </div>
-  </footer>
+<footer><div class="wrap">&copy; 2026 T Bucket Welding • Burnet, Texas</div></footer>
+<a class="sticky" href="tel:+15125536385">Call 512-553-METL</a>
 
+<script>
+/* ---- Testimonials: add REAL reviews here only. Section stays hidden while empty. ---- */
+const REVIEWS = [
+  { quote: "Terry and his crew built us a custom metal building for our property and the quality is outstanding. He was upfront about pricing from the start, showed up when he said he would, and the workmanship is top-notch — clean welds, solid structure, built to last. You can tell he takes pride in his work. Highly recommend T Bucket Welding for anyone in the Hill Country needing a metal building done right.", name: "D. Mitchell" },
+  { quote: "We had Terry put up a metal building on our property and couldn\u2019t be happier. He walked us through the whole process, answered every question, and the finished building looks even better than we imagined. Fair pricing, great communication, and real craftsmanship. If you need a metal building built right, T Bucket Welding is who to call.", name: "F. Saylor" },
+  { quote: "Terry welded some custom gates and fencing for our property and they turned out better than I expected. Good communication, honest about timeline, and the craftsmanship is top notch. Been looking for a reliable welder in this area for years, glad we found him. Highly recommend.", name: "S. Stilson" },
+];
+
+/* ---- Flying banner ---- */
+const HIGHLIGHTS = ["40+ years welding","Metal buildings","Barndominium shells","Gates & ironwork","Carports & covers","Free quotes","Proudly Hill Country"];
+(function(){
+  const t=document.getElementById('bannerTrack');
+  const items=HIGHLIGHTS;
+  t.innerHTML=[...items,...items,...items,...items].map(x=>'<span></span>').join('');
+  [...t.children].forEach((s,i)=>s.textContent=[...items,...items,...items,...items][i]);
+  if(REVIEWS.length){
+    const s=document.getElementById('reviews');s.style.display='block';
+    const set=REVIEWS.map(r=>`<div class="rcard"><q></q><cite></cite></div>`);
+    const track=document.getElementById('rtrack');
+    for(let n=0;n<2;n++)REVIEWS.forEach(r=>{const d=document.createElement('div');d.className='rcard';d.innerHTML='<q></q><cite></cite>';d.querySelector('q').textContent='“'+r.quote+'”';d.querySelector('cite').textContent='— '+r.name+' • Google review';track.appendChild(d)});
+  }
+})();
+
+/* ---- Welding sparks ---- */
+(function(){
+  const c=document.getElementById('sparks'),x=c.getContext('2d');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let w,h,p=[];
+  function size(){w=c.width=c.offsetWidth;h=c.height=c.offsetHeight}
+  size();addEventListener('resize',size);
+  function spawn(fromX,fromY,burst){
+    const n=burst?6:1;
+    for(let i=0;i<n;i++)p.push({x:fromX,y:fromY,vx:(Math.random()-.5)*(burst?7:2.2),vy:-(Math.random()*(burst?7:3.5)+1.2),g:.07+Math.random()*.05,life:1,d:.006+Math.random()*.014,s:Math.random()*2+.8});
+  }
+  function frame(){
+    x.clearRect(0,0,w,h);
+    // rod arc points (near rod tips)
+    const lx=w*.06+ (h*.62)*Math.sin(18*Math.PI/180)+5, rx=w*.94-(h*.62)*Math.sin(18*Math.PI/180)-5, ty=h-(h*.62)*Math.cos(18*Math.PI/180);
+    if(Math.random()<.55)spawn(lx,ty,true);
+    if(Math.random()<.55)spawn(rx,ty,true);
+    // rising embers from the bottom
+    if(Math.random()<.5)spawn(Math.random()*w,h+5,false);
+    x.globalCompositeOperation='lighter';
+    p=p.filter(q=>q.life>0&&q.y<h+20);
+    for(const q of p){
+      q.x+=q.vx;q.y+=q.vy;q.vy+=q.g*(q.y<h*.2?0:1)-(q.vy<0&&q.s<1.6?.04:0);q.life-=q.d;
+      const a=Math.max(q.life,0);
+      x.fillStyle=`rgba(255,${Math.floor(120+a*110)},${Math.floor(40+a*60)},${a})`;
+      x.beginPath();x.arc(q.x,q.y,q.s*(.5+a),0,6.283);x.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+/* ---- Form with confirmation ---- */
+document.getElementById('quote').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const f=e.target,s=document.getElementById('status'),b=f.querySelector('button');
+  b.disabled=true;b.textContent='Sending...';s.className='';s.style.display='none';
+  try{
+    const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
+    if(r.ok){f.reset();s.className='ok';s.textContent='Thank you! Your request was sent. We will call you back soon.';}
+    else throw 0;
+  }catch(_){s.className='err';s.textContent='Something went wrong. Please call 512-553-6385 and we will take care of you.';}
+  b.disabled=false;b.textContent='Send my request';
+});
+</script>
 </body>
 </html>
