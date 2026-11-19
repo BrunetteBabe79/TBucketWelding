@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metal Building Cost Estimator | T Bucket Welding, Burnet TX</title>
+<meta name="description" content="Get a free ballpark estimate for a custom metal building in the Texas Hill Country. Enter your size, doors, windows and concrete and see an itemized budget from T Bucket Welding.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://t-bucket-welding.vercel.app/estimator.html">
+<meta property="og:title" content="Metal Building Cost Estimator | T Bucket Welding">
+<meta property="og:description" content="Free ballpark estimate for a custom metal building in the Texas Hill Country.">
+<meta property="og:image" content="https://t-bucket-welding.vercel.app/images/tbucket-logo.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Metal Building Cost Estimator",
+  "url": "https://t-bucket-welding.vercel.app/estimator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "description": "Free ballpark cost estimator for custom metal buildings built by T Bucket Welding in the Texas Hill Country.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@id": "https://t-bucket-welding.vercel.app/#business" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "T Bucket Welding", "item": "https://t-bucket-welding.vercel.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Metal Building Estimator", "item": "https://t-bucket-welding.vercel.app/estimator.html" }
+  ]
+}
+</script>
+<style>
+  :root{--rust:#8B3A1A;--rust-light:#C4622D;--cream:#F5F0E8;--charcoal:#1C1C1A;--steel:#4A5568;--sand:#D4C5A9;--dark-bg:#141412;--panel:#232321;--line:rgba(212,197,169,.18)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--dark-bg);color:var(--cream);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.55;-webkit-text-size-adjust:100%}
+  a{color:var(--rust-light)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.5rem;background:var(--charcoal);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);text-decoration:none}
+  .logo span{color:var(--rust-light)}
+  .bar-links{display:flex;gap:1.2rem;align-items:center;font-family:'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem}
+  .bar-links a{color:var(--sand);text-decoration:none}
+  .bar-links a.call{background:var(--rust);color:var(--cream);padding:.5rem .9rem;border-radius:2px}
+  header.hero{padding:3rem 1.5rem 1.5rem;max-width:1180px;margin:0 auto}
+  .label{font-family:'Barlow Condensed',sans-serif;font-weight:500;letter-spacing:.25em;text-transform:uppercase;font-size:.78rem;color:var(--rust-light);margin-bottom:.6rem}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.12}
+  h1 em{color:var(--rust-light);font-weight:400}
+  .lede{margin-top:1rem;max-width:62ch;color:var(--sand);font-weight:300;font-size:1.05rem}
+  main{max-width:1180px;margin:0 auto;padding:1rem 1.5rem 4rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.5rem;align-items:start}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.4rem}
+  .card h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;color:var(--rust-light);margin-bottom:1rem}
+  .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem}
+  .row.two{grid-template-columns:1fr 1fr}
+  .field{display:flex;flex-direction:column;gap:.3rem;margin-bottom:.9rem}
+  label,.lbl{font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;color:var(--sand)}
+  input[type=number],input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;background:var(--charcoal);border:1px solid var(--line);color:var(--cream);padding:.7rem .75rem;border-radius:2px;font:inherit;font-size:16px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--rust-light);outline-offset:1px}
+  .check{display:flex;gap:.6rem;align-items:flex-start;margin:.2rem 0 .9rem;font-family:'Barlow',sans-serif;text-transform:none;letter-spacing:0;font-size:1rem;color:var(--cream)}
+  .check input{margin-top:.3rem;accent-color:var(--rust-light);width:18px;height:18px}
+  .hint{font-size:.85rem;color:#a99f8c;margin-top:-.4rem;margin-bottom:.8rem}
+  .stack{display:flex;flex-direction:column;gap:1.5rem}
+  .sticky{position:sticky;top:76px}
+  #wire{width:100%;height:auto;display:block;background:var(--charcoal);border:1px solid var(--line);border-radius:3px}
+  .dim-note{font-size:.85rem;color:#a99f8c;margin-top:.5rem}
+  table.est{width:100%;border-collapse:collapse;margin-top:.2rem}
+  table.est td{padding:.65rem .2rem;border-bottom:1px solid var(--line);vertical-align:top}
+  table.est td:last-child{text-align:right;white-space:nowrap;font-weight:500}
+  table.est .sub{display:block;font-size:.82rem;color:#a99f8c;font-weight:300;white-space:normal}
+  table.est tr.total td{border-bottom:0;padding-top:1rem;font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--cream)}
+  table.est tr.total td:last-child{color:var(--rust-light)}
+  .tbd{color:var(--sand);font-weight:400}
+  .disclaimer{font-size:.84rem;color:#a99f8c;margin-top:1rem;border-top:1px solid var(--line);padding-top:.9rem}
+  .btn{display:inline-block;background:var(--rust);color:var(--cream);border:0;padding:.95rem 1.6rem;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:1rem;cursor:pointer;text-decoration:none;width:100%;text-align:center}
+  .btn:hover{background:var(--rust-light)}
+  .btn.ghost{background:transparent;border:1px solid var(--sand);color:var(--sand);margin-top:.6rem}
+  .msg{display:none;margin-top:.8rem;padding:.8rem 1rem;border-radius:2px;font-size:.95rem}
+  .msg.ok{background:rgba(70,140,90,.18);border:1px solid #468c5a}
+  .msg.err{background:rgba(180,60,40,.18);border:1px solid #b43c28}
+  .admin{display:none;border-color:var(--rust-light)}
+  .admin.show{display:block}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+  footer{text-align:center;color:#a99f8c;font-size:.85rem;padding:2rem 1rem 3rem;border-top:1px solid var(--line)}
+  @media(max-width:900px){
+    main{grid-template-columns:1fr;padding-bottom:3rem}
+    .sticky{position:static}
+    .bar-links a:not(.call){display:none}
+    .row{grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+  }
+  @media(max-width:420px){.row{grid-template-columns:1fr 1fr}.logo{font-size:1.05rem}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="logo" href="index.html">T <span>Bucket</span> Welding</a>
+  <div class="bar-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a class="call" href="tel:+15125536385">Call 512-553-METL</a>
+  </div>
+</div>
+
+<header class="hero">
+  <p class="label">Free Estimator</p>
+  <h1>Metal Building Cost Estimator.<br><em>Ballpark it in a minute.</em></h1>
+  <p class="lede">Pick your size, doors, windows and concrete. You will see an itemized budget built on Terry's published rates, then you can send it straight to him for a real quote.</p>
+</header>
+
+<main>
+  <div class="stack">
+    <section class="card" aria-labelledby="h-size">
+      <h2 id="h-size">1 &middot; Building size</h2>
+      <div class="row">
+        <div class="field"><label for="w">Width (ft)</label><input id="w" type="number" inputmode="numeric" min="10" max="200" value="30"></div>
+        <div class="field"><label for="l">Length (ft)</label><input id="l" type="number" inputmode="numeric" min="10" max="400" value="40"></div>
+        <div class="field"><label for="h">Eave height (ft)</label><input id="h" type="number" inputmode="numeric" min="8" max="40" value="12"></div>
+      </div>
+      <div class="row two">
+        <div class="field">
+          <label for="pitch">Roof pitch</label>
+          <select id="pitch"><option value="1">1:12 (low)</option><option value="2" selected>2:12</option><option value="3">3:12</option><option value="4">4:12</option></select>
+        </div>
+        <div class="field">
+          <label for="kind">Project type</label>
+          <select id="kind"><option value="standard" selected>Standard building</option><option value="specialty">Specialty / complex</option></select>
+        </div>
+      </div>
+      <div class="field" id="hoursField" style="display:none">
+        <label for="hours">Estimated man-hours</label>
+        <input id="hours" type="number" inputmode="numeric" min="1" max="2000" value="80">
+        <p class="hint" style="margin-top:.4rem">Specialty and complex projects are priced by the hour plus materials. Terry will confirm the hours with you.</p>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="h-open">
+      <h2 id="h-open">2 &middot; Doors &amp; windows</h2>
+      <div class="row">
+        <div class="field"><label for="oh">Overhead doors</label><input id="oh" type="number" inputmode="numeric" min="0" max="6" value="1"></div>
+        <div class="field"><label for="wd">Walk doors</label><input id="wd" type="number" inputmode="numeric" min="0" max="6" value="1"></div>
+        <div class="field"><label for="win">Windows</label><input id="win" type="number" inputmode="numeric" min="0" max="12" value="0"></div>
+      </div>
+      <p class="hint">Standard exterior door setting is included in the build. Windows are an added cost quoted per project.</p>
+    </section>
+
+    <section class="card" aria-labelledby="h-conc">
+      <h2 id="h-conc">3 &middot; Concrete</h2>
+      <label class="check"><input id="conc" type="checkbox" checked> Include a concrete slab in my budget</label>
+      <p class="hint">Concrete is not part of the building price. You schedule and pay your concrete contractor separately, so it is shown as its own budget line.</p>
+    </section>
+
+    <section class="card admin" id="adminPanel" aria-labelledby="h-admin">
+      <h2 id="h-admin">Company settings (admin only)</h2>
+      <p class="hint" style="margin-top:0">Only visible at estimator.html#admin. Changes save in this browser so you can test what-ifs. To change the rates every visitor sees, update the CONFIG block at the top of the script in this file.</p>
+      <div class="row two">
+        <div class="field"><label for="a_rate">Build rate ($/linear ft)</label><input id="a_rate" type="number" step="0.5"></div>
+        <div class="field"><label for="a_basis">Linear feet measured as</label><select id="a_basis"><option value="perimeter">Building perimeter</option><option value="length">Building length</option></select></div>
+        <div class="field"><label for="a_clow">Concrete low ($/sq ft)</label><input id="a_clow" type="number" step="0.5"></div>
+        <div class="field"><label for="a_chigh">Concrete high ($/sq ft)</label><input id="a_chigh" type="number" step="0.5"></div>
+        <div class="field"><label for="a_hr">Specialty rate ($/man-hour)</label><input id="a_hr" type="number" step="1"></div>
+        <div class="field"><label for="a_win">Window allowance ($ each, 0 = quote)</label><input id="a_win" type="number" step="25"></div>
+        <div class="field"><label for="a_mat">Materials ($/sq ft, 0 = quote)</label><input id="a_mat" type="number" step="0.25"></div>
+      </div>
+      <button class="btn ghost" id="a_reset" type="button">Reset to file defaults</button>
+    </section>
+  </div>
+
+  <div class="stack sticky">
+    <section class="card" aria-labelledby="h-prev">
+      <h2 id="h-prev">Your building</h2>
+      <svg id="wire" viewBox="0 0 560 340" role="img" aria-label="Wireframe drawing of your metal building"></svg>
+      <p class="dim-note" id="dimNote"></p>
+    </section>
+
+    <section class="card" aria-labelledby="h-est">
+      <h2 id="h-est">Your itemized estimate</h2>
+      <div id="estOut" aria-live="polite"></div>
+      <p class="disclaimer">This is a ballpark for planning only, not a quote or a contract. Final pricing comes after Terry talks through your project, site conditions and any permits. Paint is not included. Materials are due upon delivery to the job site and final payment is due upon completion.</p>
+    </section>
+
+    <section class="card" aria-labelledby="h-send">
+      <h2 id="h-send">Send this to Terry for a real quote</h2>
+      <form id="quoteForm" novalidate>
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="_subject" value="New estimator request - T Bucket Welding">
+        <input type="hidden" name="Estimate" id="f_est">
+        <div class="field"><label for="f_name">Your name</label><input id="f_name" name="Name" type="text" autocomplete="name" required></div>
+        <div class="row two">
+          <div class="field"><label for="f_phone">Phone</label><input id="f_phone" name="Phone" type="tel" autocomplete="tel" placeholder="(512) 555-0000" required></div>
+          <div class="field"><label for="f_email">Email (optional)</label><input id="f_email" name="Email" type="email" autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="f_note">Anything else about the project?</label><textarea id="f_note" name="Message" rows="3"></textarea></div>
+        <button class="btn" type="submit" id="f_btn">Request My Quote</button>
+        <div class="msg ok" id="f_ok" role="status">Thank you. Your estimate and details went to Terry, and he will follow up with you.</div>
+        <div class="msg err" id="f_err" role="alert">Something went wrong sending that. Please call 512-553-METL and we will take care of you.</div>
+      </form>
+      <a class="btn ghost" href="tel:+15125536385">Or call 512-553-METL</a>
+    </section>
+  </div>
+</main>
+
+<footer>
+  T Bucket Welding &middot; Burnet, Texas &middot; Hill Country Metal Building Specialists<br>
+  <a href="index.html">Back to the main site</a>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG: the rates every visitor sees. Edit here to change them.
+   Build rate, concrete range and specialty rate come from the
+   Pricing section on the main site.
+   ============================================================ */
+var CONFIG = {
+  buildRatePerLinearFt: 25,      // "Standard Metal Building: $25 per linear foot"
+  linearFtBasis: 'perimeter',    // 'perimeter' (all four walls) or 'length' - CONFIRM WITH TERRY
+  concreteLowPerSqFt: 10,        // "Concrete Work: $10-$20 per sq ft"
+  concreteHighPerSqFt: 20,
+  specialtyRatePerHour: 125,     // "Specialty / Complex: $125 per man/hour + materials"
+  windowAllowanceEach: 0,        // 0 = "Quoted per project"
+  materialsPerSqFt: 0,           // 0 = materials priced separately at quote
+  formEndpoint: 'https://formspree.io/f/xppaplbj'
+};
+</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return Math.round(n).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }); };
+  var num = function (id, lo, hi, dflt) {
+    var v = parseFloat($(id).value);
+    if (!isFinite(v)) return dflt;
+    return Math.min(hi, Math.max(lo, v));
+  };
+
+  var cfg = JSON.parse(JSON.stringify(CONFIG));
+  var admin = location.hash === '#admin';
+  var STORE = 'tbw_est_cfg';
+
+  if (admin) {
+    try { var saved = JSON.parse(localStorage.getItem(STORE) || '{}'); for (var k in saved) cfg[k] = saved[k]; } catch (e) {}
+    $('adminPanel').classList.add('show');
+    var map = { a_rate: 'buildRatePerLinearFt', a_basis: 'linearFtBasis', a_clow: 'concreteLowPerSqFt', a_chigh: 'concreteHighPerSqFt', a_hr: 'specialtyRatePerHour', a_win: 'windowAllowanceEach', a_mat: 'materialsPerSqFt' };
+    Object.keys(map).forEach(function (id) {
+      var el = $(id); el.value = cfg[map[id]];
+      el.addEventListener('input', function () {
+        cfg[map[id]] = el.tagName === 'SELECT' ? el.value : (parseFloat(el.value) || 0);
+        try { localStorage.setItem(STORE, JSON.stringify(cfg)); } catch (e) {}
+        render();
+      });
+    });
+    $('a_reset').addEventListener('click', function () {
+      try { localStorage.removeItem(STORE); } catch (e) {}
+      cfg = JSON.parse(JSON.stringify(CONFIG));
+      Object.keys(map).forEach(function (id) { $(id).value = cfg[map[id]]; });
+      render();
+    });
+  }
+
+  function read() {
+    var s = {
+      w: num('w', 10, 200, 30), l: num('l', 10, 400, 40), h: num('h', 8, 40, 12),
+      pitch: parseFloat($('pitch').value) || 2,
+      kind: $('kind').value, hours: num('hours', 1, 2000, 80),
+      oh: Math.round(num('oh', 0, 6, 0)), wd: Math.round(num('wd', 0, 6, 0)), win: Math.round(num('win', 0, 12, 0)),
+      conc: $('conc').checked
+    };
+    s.area = s.w * s.l;
+    s.perimeter = 2 * (s.w + s.l);
+    s.lf = cfg.linearFtBasis === 'length' ? s.l : s.perimeter;
+    return s;
+  }
+
+  function calc(s) {
+    var r = { lines: [] };
+    var build;
+    if (s.kind === 'specialty') {
+      build = s.hours * cfg.specialtyRatePerHour;
+      r.lines.push({ t: 'Specialty / complex build labor', sub: s.hours + ' man-hours at ' + money(cfg.specialtyRatePerHour) + ' per hour, plus materials', v: build });
+    } else {
+      build = s.lf * cfg.buildRatePerLinearFt;
+      var basis = cfg.linearFtBasis === 'length' ? 'building length' : 'building perimeter';
+      r.lines.push({ t: 'Standard metal building', sub: s.lf + ' linear ft (' + basis + ') at ' + money(cfg.buildRatePerLinearFt) + ' per ft. Structure only.', v: build });
+    }
+    r.build = build;
+
+    var doors = [];
+    if (s.oh) doors.push(s.oh + ' overhead');
+    if (s.wd) doors.push(s.wd + ' walk');
+    r.lines.push({ t: 'Exterior doors', sub: doors.length ? doors.join(' + ') + ' door setting' : 'None selected', v: doors.length ? 'Included' : '$0', plain: true });
+
+    var winCost = 0;
+    if (s.win) {
+      if (cfg.windowAllowanceEach > 0) {
+        winCost = s.win * cfg.windowAllowanceEach;
+        r.lines.push({ t: 'Windows', sub: s.win + ' at ' + money(cfg.windowAllowanceEach) + ' each (allowance)', v: winCost });
+      } else {
+        r.lines.push({ t: 'Windows', sub: s.win + ' selected. Added cost, quoted per project.', v: 'Quoted', plain: true });
+      }
+    }
+
+    var matCost = 0;
+    if (s.kind === 'standard') {
+      if (cfg.materialsPerSqFt > 0) {
+        matCost = s.area * cfg.materialsPerSqFt;
+        r.lines.push({ t: 'Materials (estimate)', sub: s.area.toLocaleString() + ' sq ft at ' + money(cfg.materialsPerSqFt) + ' per sq ft. Due upon delivery.', v: matCost });
+      } else {
+        r.lines.push({ t: 'Building materials', sub: 'Priced separately in your quote. Due upon delivery to the job site.', v: 'Quoted', plain: true });
+      }
+    }
+
+    r.lowBuild = build + winCost + matCost;
+    r.highBuild = r.lowBuild;
+
+    r.concLow = 0; r.concHigh = 0;
+    if (s.conc) {
+      r.concLow = s.area * cfg.concreteLowPerSqFt;
+      r.concHigh = s.area * cfg.concreteHighPerSqFt;
+      r.lines.push({ t: 'Concrete slab (separate contractor)', sub: s.area.toLocaleString() + ' sq ft at ' + money(cfg.concreteLowPerSqFt) + ' to ' + money(cfg.concreteHighPerSqFt) + ' per sq ft. Scheduled and paid by you.', v: money(r.concLow) + ' to ' + money(r.concHigh), plain: true });
+    }
+    r.totalLow = r.lowBuild + r.concLow;
+    r.totalHigh = r.highBuild + r.concHigh;
+    return r;
+  }
+
+  function summaryText(s, r) {
+    var t = [];
+    t.push('Estimator request');
+    t.push('Size: ' + s.w + ' x ' + s.l + ' ft, ' + s.h + ' ft eave, ' + s.pitch + ':12 roof (' + s.area.toLocaleString() + ' sq ft)');
+    t.push('Project type: ' + (s.kind === 'specialty' ? 'Specialty / complex, ' + s.hours + ' man-hours' : 'Standard metal building'));
+    t.push('Doors: ' + s.oh + ' overhead, ' + s.wd + ' walk. Windows: ' + s.win);
+    t.push('Concrete slab included: ' + (s.conc ? 'yes' : 'no'));
+    t.push('Build estimate: ' + money(r.lowBuild) + (r.lines.some(function (x) { return x.v === 'Quoted'; }) ? ' (windows/materials still to be quoted)' : ''));
+    if (s.conc) t.push('Concrete budget (separate): ' + money(r.concLow) + ' to ' + money(r.concHigh));
+    t.push('Ballpark total: ' + (r.totalLow === r.totalHigh ? money(r.totalLow) : money(r.totalLow) + ' to ' + money(r.totalHigh)));
+    t.push('Rates used: ' + money(cfg.buildRatePerLinearFt) + '/linear ft (' + cfg.linearFtBasis + ')');
+    return t.join('\n');
+  }
+
+  function drawWire(s) {
+    var svg = $('wire');
+    var A = 560, B = 340, pad = 46;
+    var rise = (s.w / 2) * (s.pitch / 12);
+    var k = 0.42;                       // depth foreshortening
+    var ox = s.l * k * 0.866, oy = s.l * k * 0.5;
+    var totW = s.w + ox, totH = s.h + rise + oy;
+    var sc = Math.min((A - pad * 2) / totW, (B - pad * 2) / totH);
+    var x0 = (A - totW * sc) / 2 + 6, y0 = B - (B - totH * sc) / 2 - 4;
+    function P(x, y, z) { return [x0 + (x + z * k * 0.866) * sc, y0 - (y + z * k * 0.5) * sc]; }
+    function pt(a) { return a[0].toFixed(1) + ',' + a[1].toFixed(1); }
+    var W = s.w, H = s.h, L = s.l, R = rise;
+    var fbl = P(0, 0, 0), fbr = P(W, 0, 0), ftl = P(0, H, 0), ftr = P(W, H, 0), fpk = P(W / 2, H + R, 0);
+    var bbr = P(W, 0, L), btr = P(W, H, L), bpk = P(W / 2, H + R, L), btl = P(0, H, L);
+    var e = '#C4622D', soft = 'rgba(245,240,232,.55)', dim = 'rgba(212,197,169,.85)';
+    var o = '';
+    o += '<polygon points="' + [fbr, bbr, btr, ftr].map(pt).join(' ') + '" fill="rgba(139,58,26,.16)" stroke="' + e + '" stroke-width="1.6" stroke-linejoin="round"/>';
+    o += '<polygon points="' + [fpk, ftr, btr, bpk].map(pt).join(' ') + '" fill="rgba(245,240,232,.08)" stroke="' + e + '" stroke-width="1.6" stroke-linejoin="round"/>';
+    o += '<polygon points="' + [ftl, fpk, bpk, btl].map(pt).join(' ') + '" fill="none" stroke="' + soft + '" stroke-width="1" stroke-dasharray="4 4"/>';
+    o += '<polygon points="' + [fbl, fbr, ftr, fpk, ftl].map(pt).join(' ') + '" fill="rgba(245,240,232,.05)" stroke="' + e + '" stroke-width="2" stroke-linejoin="round"/>';
+    // wall ribs on front face
+    var ribs = Math.max(4, Math.min(24, Math.round(W / 3)));
+    for (var i = 1; i < ribs; i++) {
+      var a = P(W * i / ribs, 0, 0), b = P(W * i / ribs, H, 0);
+      o += '<line x1="' + a[0].toFixed(1) + '" y1="' + a[1].toFixed(1) + '" x2="' + b[0].toFixed(1) + '" y2="' + b[1].toFixed(1) + '" stroke="rgba(245,240,232,.08)" stroke-width="1"/>';
+    }
+    // openings on front wall, centered in equal slots
+    var items = [];
+    for (i = 0; i < s.oh; i++) items.push({ w: 10, h: Math.min(10, H - 1), y: 0, c: 'door' });
+    for (i = 0; i < s.wd; i++) items.push({ w: 3, h: Math.min(7, H - 1), y: 0, c: 'walk' });
+    for (i = 0; i < s.win; i++) items.push({ w: 3, h: 3, y: Math.min(4, Math.max(0, H - 4)), c: 'win' });
+    var n = items.length;
+    items.forEach(function (it, idx) {
+      var slot = W / n, cx = slot * (idx + .5), iw = Math.min(it.w, slot * 0.86);
+      var p1 = P(cx - iw / 2, it.y, 0), p2 = P(cx + iw / 2, it.y, 0), p3 = P(cx + iw / 2, it.y + it.h, 0), p4 = P(cx - iw / 2, it.y + it.h, 0);
+      var fill = it.c === 'win' ? 'rgba(212,197,169,.18)' : 'rgba(20,20,18,.85)';
+      o += '<polygon points="' + [p1, p2, p3, p4].map(pt).join(' ') + '" fill="' + fill + '" stroke="' + dim + '" stroke-width="1.2"/>';
+      if (it.c === 'door') {
+        for (var j = 1; j < 4; j++) { var y = it.y + it.h * j / 4, l1 = P(cx - iw / 2, y, 0), l2 = P(cx + iw / 2, y, 0); o += '<line x1="' + l1[0].toFixed(1) + '" y1="' + l1[1].toFixed(1) + '" x2="' + l2[0].toFixed(1) + '" y2="' + l2[1].toFixed(1) + '" stroke="rgba(212,197,169,.35)" stroke-width="1"/>'; }
+      }
+    });
+    // ground line + labels
+    o += '<line x1="' + (fbl[0] - 18).toFixed(1) + '" y1="' + fbl[1].toFixed(1) + '" x2="' + (bbr[0] + 18).toFixed(1) + '" y2="' + fbl[1].toFixed(1) + '" stroke="rgba(212,197,169,.3)" stroke-width="1"/>';
+    function T(x, y, txt, anchor) { return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" fill="' + dim + '" font-family="Barlow Condensed,sans-serif" font-size="14" letter-spacing="1" text-anchor="' + (anchor || 'middle') + '">' + txt + '</text>'; }
+    o += T((fbl[0] + fbr[0]) / 2, fbl[1] + 22, s.w + ' ft wide');
+    o += T(fbr[0] + (bbr[0] - fbr[0]) / 2 + 10, (fbr[1] + bbr[1]) / 2 + 18, s.l + ' ft long', 'start');
+    o += T(fbl[0] - 10, (fbl[1] + ftl[1]) / 2 + 4, s.h + ' ft', 'end');
+    svg.innerHTML = o;
+    $('dimNote').textContent = s.w + ' x ' + s.l + ' ft building, ' + s.area.toLocaleString() + ' sq ft under roof. Drawing is a simple outline, not to scale for doors.';
+  }
+
+  function render() {
+    $('hoursField').style.display = $('kind').value === 'specialty' ? 'flex' : 'none';
+    var s = read(), r = calc(s);
+    var html = '<table class="est"><tbody>';
+    r.lines.forEach(function (ln) {
+      var val = typeof ln.v === 'number' ? money(ln.v) : ln.v;
+      html += '<tr><td>' + ln.t + '<span class="sub">' + ln.sub + '</span></td><td' + (ln.plain ? ' class="tbd"' : '') + '>' + val + '</td></tr>';
+    });
+    var tot = r.totalLow === r.totalHigh ? money(r.totalLow) : money(r.totalLow) + '<br>to ' + money(r.totalHigh);
+    html += '<tr class="total"><td>Ballpark total<span class="sub" style="font-family:Barlow,sans-serif;font-size:.82rem">' + (r.lines.some(function (x) { return x.v === 'Quoted'; }) ? 'Items marked Quoted are not in this number.' : 'Building plus concrete budget.') + '</span></td><td>' + tot + '</td></tr>';
+    html += '</tbody></table>';
+    $('estOut').innerHTML = html;
+    $('f_est').value = summaryText(s, r);
+    drawWire(s);
+  }
+
+  ['w', 'l', 'h', 'pitch', 'kind', 'hours', 'oh', 'wd', 'win', 'conc'].forEach(function (id) {
+    $(id).addEventListener('input', render);
+    $(id).addEventListener('change', render);
+  });
+
+  $('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var ok = $('f_ok'), err = $('f_err'), btn = $('f_btn');
+    ok.style.display = 'none'; err.style.display = 'none';
+    if (!$('f_name').value.trim() || !$('f_phone').value.trim()) { err.textContent = 'Please add your name and phone number so Terry can reach you.'; err.style.display = 'block'; return; }
+    err.textContent = 'Something went wrong sending that. Please call 512-553-METL and we will take care of you.';
+    btn.disabled = true; btn.textContent = 'Sending...';
+    fetch(CONFIG.formEndpoint, { method: 'POST', body: new FormData($('quoteForm')), headers: { 'Accept': 'application/json' } })
+      .then(function (res) { if (res.ok) { ok.style.display = 'block'; $('quoteForm').reset(); render(); } else { err.style.display = 'block'; } })
+      .catch(function () { err.style.display = 'block'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Request My Quote'; });
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

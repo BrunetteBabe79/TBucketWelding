@@ -794,8 +794,22 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "GeneralContractor"],
   "name": "T Bucket Welding",
+  "@id": "https://t-bucket-welding.vercel.app/#business",
   "url": "https://t-bucket-welding.vercel.app",
   "telephone": "+1-512-553-6385",
+  "logo": "https://t-bucket-welding.vercel.app/images/tbucket-logo.jpg",
+  "image": [
+    "https://t-bucket-welding.vercel.app/images/job-metal-building.jpg",
+    "https://t-bucket-welding.vercel.app/images/tbucket-logo.jpg"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-512-553-6385",
+    "contactType": "customer service",
+    "areaServed": "US-TX",
+    "availableLanguage": "English"
+  },
+  "knowsAbout": ["Custom metal buildings", "Weld-up steel structures", "Barndominiums", "Metal carports", "Welding and fabrication"],
   "priceRange": "$$",
   "foundingDate": "1984",
   "description": "Custom metal buildings, barndominiums, carports, and steel structures built by hand in the Texas Hill Country. 40+ years of craftsmanship from T Bucket Welding in Burnet, TX.",
@@ -825,6 +839,16 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Fabrication", "description": "Specialty steel builds and custom welding projects." } }
     ]
   }
+}
+</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://t-bucket-welding.vercel.app/#website",
+  "url": "https://t-bucket-welding.vercel.app",
+  "name": "T Bucket Welding",
+  "publisher": { "@id": "https://t-bucket-welding.vercel.app/#business" }
 }
 </script>
 <link rel="icon" type="image/png" href="images/favicon.png">
@@ -866,6 +890,7 @@
     <li><a href="#story">Our Story</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="estimator.html">Estimator</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#contact">Get a Quote</a></li>
   </ul>
@@ -1060,6 +1085,7 @@
     </tbody>
   </table>
   <p class="price-note">All quotes are provided after a detailed conversation about your project. Materials are due upon delivery to the job site. Final payment is due upon completion. Terry will walk you through everything before any work begins.</p>
+  <p style="text-align:center;margin-top:2rem;"><a href="estimator.html" class="btn-primary">Try the Free Building Estimator</a></p>
 </section>
 
 
@@ -1105,6 +1131,9 @@
 .tbw-cap{position:absolute;left:0;right:0;bottom:0;padding:1.2rem 1.4rem;background:linear-gradient(transparent,rgba(20,20,18,.92))}
 .tbw-cap .k{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rust-light);margin-bottom:4px}
 .tbw-cap .t{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--cream)}
+.tbw-play{position:absolute;inset:0;margin:auto;width:76px;height:76px;border-radius:50%;border:2px solid var(--cream);background:rgba(20,20,18,.62);color:var(--cream);cursor:pointer;display:none;align-items:center;justify-content:center;z-index:3;padding:0;-webkit-tap-highlight-color:transparent}
+.tbw-play svg{width:30px;height:30px;margin-left:4px;fill:currentColor}
+.tbw-play.show{display:flex}
 @media(max-width:800px){.tbw-job-grid{grid-template-columns:1fr}.tbw-tile{min-height:260px}}
 .tbw-rev{padding:4rem 0;background:var(--charcoal);overflow:hidden;position:relative;z-index:1}
 .tbw-rev-head{max-width:1200px;margin:0 auto 2.2rem;padding:0 2rem}
@@ -1123,7 +1152,7 @@
     <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--cream);line-height:1.15;">Steel going up<br><em style="font-style:italic;color:var(--rust-light);">right now.</em></h2>
     <div class="tbw-job-grid">
       <div class="tbw-tile"><img src="images/job-metal-building.jpg" alt="Metal building with two bays and a walk door, built by T Bucket Welding" loading="lazy"><div class="tbw-cap"><div class="k">Metal Building</div><div class="t">Two-bay shop, Hill Country</div></div></div>
-      <div class="tbw-tile"><video src="images/build-lift.mp4" poster="images/build-lift-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Crew lifting wall panels into place with a telehandler"></video><div class="tbw-cap"><div class="k">On Location</div><div class="t">Panels going up</div></div></div>
+      <div class="tbw-tile"><video id="liftVideo" src="images/build-lift.mp4" poster="images/build-lift-poster.jpg" autoplay muted loop playsinline webkit-playsinline disableremoteplayback preload="auto" aria-label="Crew lifting wall panels into place with a telehandler"></video><button class="tbw-play" id="liftPlay" type="button" aria-label="Play video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button><div class="tbw-cap"><div class="k">On Location</div><div class="t">Panels going up</div></div></div>
     </div>
   </div>
 </section>
@@ -1362,6 +1391,38 @@ document.querySelectorAll('section').forEach(section => {
   section.style.transition = "all 0.6s ease-out";
   observer.observe(section);
 });
+</script>
+<script>
+/* Mobile video: phones in Low Power Mode and in-app browsers block autoplay.
+   Try to play, retry on first touch, and show a tap-to-play button if still blocked. */
+(function () {
+  var v = document.getElementById('liftVideo');
+  var btn = document.getElementById('liftPlay');
+  if (!v || !btn) return;
+  v.muted = true;
+  v.defaultMuted = true;
+  v.setAttribute('playsinline', '');
+  function showBtn(on) { btn.classList.toggle('show', !!on); }
+  function tryPlay() {
+    var p;
+    try { p = v.play(); } catch (e) { showBtn(true); return; }
+    if (p && typeof p.then === 'function') {
+      p.then(function () { showBtn(false); }).catch(function () { showBtn(true); });
+    }
+  }
+  btn.addEventListener('click', function () { tryPlay(); });
+  v.addEventListener('playing', function () { showBtn(false); });
+  ['touchend', 'click'].forEach(function (evt) {
+    document.addEventListener(evt, function () { if (v.paused) tryPlay(); }, { once: true, passive: true });
+  });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting && v.paused) tryPlay(); });
+    }, { threshold: 0.25 }).observe(v);
+  }
+  if (v.readyState >= 2) tryPlay(); else v.addEventListener('loadeddata', tryPlay, { once: true });
+  setTimeout(function () { if (v.paused) showBtn(true); }, 2500);
+})();
 </script>
 </body>
 </html>

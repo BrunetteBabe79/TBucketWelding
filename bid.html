@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Bid Calculator | T Bucket Welding (internal)</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--rust:#8B3A1A;--rust-light:#C4622D;--cream:#F5F0E8;--charcoal:#1C1C1A;--sand:#D4C5A9;--dark-bg:#141412;--panel:#232321;--line:rgba(212,197,169,.18)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--dark-bg);color:var(--cream);font-family:'Barlow',sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+  .bar{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:var(--charcoal);border-bottom:1px solid var(--line)}
+  .logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:1.2rem}
+  .logo span{color:var(--rust-light)}
+  .tag{font-family:'Barlow Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;color:var(--rust-light)}
+  h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(1.8rem,4vw,2.6rem);padding:2rem 1.5rem .3rem;max-width:1180px;margin:0 auto}
+  .sub{max-width:1180px;margin:0 auto;padding:0 1.5rem 1rem;color:var(--sand);font-weight:300}
+  main{max-width:1180px;margin:0 auto;padding:0 1.5rem 4rem;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:1.5rem;align-items:start}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1.3rem;margin-bottom:1.5rem}
+  .card h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:1rem;color:var(--rust-light);margin-bottom:.9rem}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem}
+  .grid.two{grid-template-columns:1fr 1fr}
+  .f{display:flex;flex-direction:column;gap:.25rem;margin-bottom:.7rem}
+  label{font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;color:var(--sand)}
+  input,select,textarea{width:100%;background:var(--charcoal);border:1px solid var(--line);color:var(--cream);padding:.6rem .65rem;border-radius:2px;font:inherit;font-size:16px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--rust-light);outline-offset:1px}
+  .hint{font-size:.84rem;color:#a99f8c;margin:.2rem 0 .8rem}
+  table{width:100%;border-collapse:collapse}
+  th{font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.74rem;color:var(--sand);text-align:left;padding:.3rem .3rem}
+  td{padding:.25rem .3rem;vertical-align:middle}
+  td.amt{text-align:right;white-space:nowrap;font-weight:500;padding-left:.6rem}
+  td input{padding:.5rem}
+  .x{background:none;border:0;color:#a99f8c;font-size:1.3rem;cursor:pointer;padding:0 .4rem}
+  .btn{background:var(--rust);color:var(--cream);border:0;padding:.75rem 1.2rem;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.95rem;cursor:pointer}
+  .btn:hover{background:var(--rust-light)}
+  .btn.ghost{background:transparent;border:1px solid var(--sand);color:var(--sand)}
+  .btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+  .check{display:flex;gap:.6rem;align-items:flex-start;margin-bottom:.8rem;text-transform:none;letter-spacing:0;font-family:'Barlow',sans-serif;font-size:1rem;color:var(--cream)}
+  .check input{width:18px;height:18px;margin-top:.25rem;accent-color:var(--rust-light)}
+  .sum{width:100%}
+  .sum td{padding:.5rem .2rem;border-bottom:1px solid var(--line)}
+  .sum td:last-child{text-align:right;font-weight:500;white-space:nowrap}
+  .sum tr.big td{font-family:'Playfair Display',serif;font-size:1.5rem;border-bottom:0;padding-top:.9rem}
+  .sum tr.big td:last-child{color:var(--rust-light)}
+  .sum small{display:block;color:#a99f8c;font-weight:300;font-size:.8rem}
+  .stick{position:sticky;top:12px}
+  .pill{display:inline-block;font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;padding:.2rem .6rem;border-radius:20px;border:1px solid var(--line)}
+  .pill.good{color:#7fc796;border-color:#468c5a}.pill.warn{color:#e8b25a;border-color:#b8862e}.pill.bad{color:#e88a7a;border-color:#b43c28}
+  .toast{position:fixed;left:50%;bottom:1.2rem;transform:translateX(-50%);background:#2b2b28;border:1px solid var(--line);padding:.7rem 1.1rem;border-radius:3px;display:none;z-index:50}
+  @media(max-width:900px){main{grid-template-columns:1fr}.stick{position:static}.grid{grid-template-columns:1fr 1fr}}
+  @media print{
+    body{background:#fff;color:#000}.bar,.noprint,.card.noprint{display:none!important}
+    main{display:block;padding:0}.card{background:#fff;border:1px solid #ccc;color:#000;break-inside:avoid}
+    .card h2{color:#8B3A1A}.sum tr.big td:last-child{color:#8B3A1A}h1,.sub{color:#000;padding-left:0}
+    input,select,textarea{background:#fff;color:#000;border:0;padding:0}.sum td{border-color:#ddd}.sum small{color:#555}
+  }
+</style>
+</head>
+<body>
+<div class="bar noprint"><div class="logo">T <span>Bucket</span> Welding</div><div class="tag">Internal &middot; Bid Calculator</div></div>
+<h1>Bid Calculator</h1>
+<p class="sub noprint">Build a job from cost to price. Every number you type saves in this browser only. Starter values below are placeholders, so replace them with Terry's real costs.</p>
+
+<main>
+<div>
+  <section class="card">
+    <h2>1 &middot; Job</h2>
+    <div class="grid two">
+      <div class="f"><label for="cust">Customer</label><input id="cust" type="text"></div>
+      <div class="f"><label for="job">Job name / site</label><input id="job" type="text"></div>
+    </div>
+    <div class="grid">
+      <div class="f"><label for="w">Width (ft)</label><input id="w" type="number" inputmode="decimal" value="30"></div>
+      <div class="f"><label for="l">Length (ft)</label><input id="l" type="number" inputmode="decimal" value="40"></div>
+      <div class="f"><label for="h">Eave height (ft)</label><input id="h" type="number" inputmode="decimal" value="12"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>2 &middot; Labor</h2>
+    <div class="grid">
+      <div class="f"><label for="rate">Build rate ($/linear ft)</label><input id="rate" type="number" inputmode="decimal" value="25"></div>
+      <div class="f"><label for="basis">Linear ft measured as</label><select id="basis"><option value="perimeter">Perimeter</option><option value="length">Length</option></select></div>
+      <div class="f"><label for="lf">Linear ft (auto, editable)</label><input id="lf" type="number" inputmode="decimal"></div>
+    </div>
+    <div class="grid">
+      <div class="f"><label for="xhrs">Extra man-hours</label><input id="xhrs" type="number" inputmode="decimal" value="0"></div>
+      <div class="f"><label for="xrate">Hourly rate ($)</label><input id="xrate" type="number" inputmode="decimal" value="125"></div>
+      <div class="f"><label for="crew">Actual labor cost ($, optional)</label><input id="crew" type="number" inputmode="decimal" value="0"></div>
+    </div>
+    <p class="hint">Build rate and hourly rate come from the published pricing. Actual labor cost is what the crew really costs you for this job (wages, burden). Leave it 0 and labor is carried at the published rates as a cost, which understates your profit but never overstates it.</p>
+  </section>
+
+  <section class="card">
+    <h2>3 &middot; Materials</h2>
+    <label class="check"><input id="custPays" type="checkbox" checked> Customer pays materials directly at delivery (not in my bid total)</label>
+    <table id="matT"><thead><tr><th>Item</th><th style="width:70px">Qty</th><th style="width:100px">Unit $</th><th style="width:100px;text-align:right">Total</th><th style="width:30px"></th></tr></thead><tbody></tbody></table>
+    <div class="btns noprint"><button class="btn ghost" type="button" id="addMat">+ Add material line</button></div>
+  </section>
+
+  <section class="card">
+    <h2>4 &middot; Subs, equipment &amp; other</h2>
+    <div class="grid">
+      <div class="f"><label for="crate">Concrete ($/sq ft)</label><input id="crate" type="number" inputmode="decimal" value="15"></div>
+      <div class="f"><label for="cpays">Concrete handled by</label><select id="cpays"><option value="client">Client (separate)</option><option value="me">Me (in bid)</option></select></div>
+      <div class="f"><label for="sqft">Slab sq ft (auto, editable)</label><input id="sqft" type="number" inputmode="decimal"></div>
+    </div>
+    <table id="othT"><thead><tr><th>Item</th><th style="width:70px">Qty</th><th style="width:100px">Unit $</th><th style="width:100px;text-align:right">Total</th><th style="width:30px"></th></tr></thead><tbody></tbody></table>
+    <div class="btns noprint"><button class="btn ghost" type="button" id="addOth">+ Add line (equipment, permit, travel, sub)</button></div>
+  </section>
+
+  <section class="card">
+    <h2>5 &middot; Markup &amp; terms</h2>
+    <div class="grid">
+      <div class="f"><label for="oh">Overhead (% of cost)</label><input id="oh" type="number" inputmode="decimal" value="10"></div>
+      <div class="f"><label for="cont">Contingency (% of cost)</label><input id="cont" type="number" inputmode="decimal" value="5"></div>
+      <div class="f"><label for="mar">Profit margin (% of price)</label><input id="mar" type="number" inputmode="decimal" value="20"></div>
+      <div class="f"><label for="tax">Sales tax (%)</label><input id="tax" type="number" inputmode="decimal" value="0"></div>
+      <div class="f"><label for="dep">Deposit (% of bid)</label><input id="dep" type="number" inputmode="decimal" value="0"></div>
+      <div class="f"><label for="valid">Bid good for (days)</label><input id="valid" type="number" inputmode="numeric" value="30"></div>
+    </div>
+    <p class="hint">Profit margin is a share of the final price, so 20% margin means $20 of every $100 is profit. Check with your CPA on how Texas sales tax applies to your jobs before using the tax field.</p>
+    <div class="f"><label for="notes">Scope notes / exclusions (prints on the bid)</label><textarea id="notes" rows="3">Paint and finish coating not included. Windows quoted separately. Concrete by client unless listed above.</textarea></div>
+  </section>
+</div>
+
+<aside class="stick">
+  <section class="card">
+    <h2>Bid summary</h2>
+    <table class="sum" id="sum"></table>
+    <div style="margin-top:.8rem" id="flag"></div>
+    <div class="btns noprint">
+      <button class="btn" type="button" id="print">Print / Save PDF</button>
+      <button class="btn ghost" type="button" id="copy">Copy summary</button>
+      <button class="btn ghost" type="button" id="reset">Clear</button>
+    </div>
+  </section>
+  <section class="card noprint">
+    <h2>Saved bids</h2>
+    <div class="grid two" style="grid-template-columns:1fr auto;align-items:end">
+      <div class="f" style="margin:0"><label for="saved">Load a saved bid</label><select id="saved"><option value="">-</option></select></div>
+      <button class="btn ghost" type="button" id="save">Save this bid</button>
+    </div>
+    <p class="hint" style="margin-top:.6rem">Saved on this device only. Clearing browser data removes them.</p>
+  </section>
+</aside>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (i) { return document.getElementById(i); };
+  var n = function (i) { var v = parseFloat($(i).value); return isFinite(v) ? v : 0; };
+  var money = function (v) { return v.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }); };
+  var money2 = function (v) { return v.toLocaleString('en-US', { style: 'currency', currency: 'USD' }); };
+  var FIELDS = ['cust','job','w','l','h','rate','basis','lf','xhrs','xrate','crew','custPays','crate','cpays','sqft','oh','cont','mar','tax','dep','valid','notes'];
+  var KEY = 'tbw_bid_draft', LIST = 'tbw_bid_saved';
+  var MAT_DEFAULT = ['Structural steel / framing', 'Roof panels', 'Wall panels', 'Trim, flashing, closures', 'Fasteners and hardware', 'Overhead door(s)', 'Walk door(s)', 'Windows', 'Insulation'];
+  var OTH_DEFAULT = ['Equipment rental (telehandler)', 'Delivery / travel / fuel', 'Permits'];
+  var autoLf = true, autoSq = true;
+
+  function addRow(tbody, name, qty, unit) {
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td><input type="text" class="rn" aria-label="Item"></td><td><input type="number" inputmode="decimal" class="rq" aria-label="Quantity"></td><td><input type="number" inputmode="decimal" class="ru" aria-label="Unit cost"></td><td class="amt">$0</td><td><button class="x noprint" type="button" aria-label="Remove line">&times;</button></td>';
+    tr.querySelector('.rn').value = name || ''; tr.querySelector('.rq').value = qty == null ? 1 : qty; tr.querySelector('.ru').value = unit == null ? '' : unit;
+    tr.addEventListener('input', calc);
+    tr.querySelector('.x').addEventListener('click', function () { tr.remove(); calc(); });
+    tbody.appendChild(tr);
+  }
+  function rows(tb) {
+    return Array.prototype.map.call(document.querySelectorAll('#' + tb + ' tbody tr'), function (tr) {
+      var q = parseFloat(tr.querySelector('.rq').value) || 0, u = parseFloat(tr.querySelector('.ru').value) || 0;
+      tr.querySelector('.amt').textContent = money(q * u);
+      return { name: tr.querySelector('.rn').value, qty: q, unit: u, total: q * u };
+    });
+  }
+  function sumRows(r) { return r.reduce(function (a, x) { return a + x.total; }, 0); }
+
+  function calc() {
+    var w = n('w'), l = n('l');
+    if (autoLf) $('lf').value = $('basis').value === 'length' ? l : 2 * (w + l);
+    if (autoSq) $('sqft').value = w * l;
+    var lf = n('lf'), sq = n('sqft');
+    var laborBuild = lf * n('rate'), laborExtra = n('xhrs') * n('xrate'), laborRev = laborBuild + laborExtra;
+    var laborCost = n('crew') > 0 ? n('crew') : laborRev;
+    var matRows = rows('matT'), othRows = rows('othT');
+    var mat = sumRows(matRows), oth = sumRows(othRows);
+    var conc = $('cpays').value === 'me' ? sq * n('crate') : 0;
+    var matInBid = $('custPays').checked ? 0 : mat;
+
+    var cost = laborCost + matInBid + oth + conc;
+    var overhead = cost * n('oh') / 100, cont = cost * n('cont') / 100;
+    var loaded = cost + overhead + cont;
+    var m = Math.min(Math.max(n('mar'), 0), 95) / 100;
+    var priceBeforeTax = loaded / (1 - m);
+    var tax = priceBeforeTax * n('tax') / 100;
+    var bid = priceBeforeTax + tax;
+    var profit = priceBeforeTax - loaded;
+    var deposit = bid * n('dep') / 100;
+    var effMargin = priceBeforeTax > 0 ? profit / priceBeforeTax * 100 : 0;
+    var vsPub = laborRev; // published-rate labor for reference
+
+    var h = '';
+    function line(a, b, s) { h += '<tr><td>' + a + (s ? '<small>' + s + '</small>' : '') + '</td><td>' + b + '</td></tr>'; }
+    line('Labor (your cost)', money(laborCost), n('crew') > 0 ? 'Your actual labor cost' : 'Carried at published rates (' + money(laborRev) + ')');
+    line('Materials in bid', money(matInBid), $('custPays').checked ? 'Customer pays ' + money(mat) + ' at delivery' : '');
+    line('Equipment / other', money(oth));
+    if ($('cpays').value === 'me') line('Concrete', money(conc), sq.toLocaleString() + ' sq ft');
+    line('Total cost', money(cost));
+    line('Overhead + contingency', money(overhead + cont));
+    line('Profit', money(profit), effMargin.toFixed(1) + '% of price');
+    if (n('tax') > 0) line('Sales tax', money(tax));
+    h += '<tr class="big"><td>Bid price</td><td>' + money(bid) + '</td></tr>';
+    if (deposit > 0) line('Deposit due', money(deposit), 'Balance ' + money(bid - deposit) + ' on completion');
+    if ($('custPays').checked && mat > 0) line('Materials due at delivery', money(mat), 'Paid by customer, separate from the bid');
+    h += '<tr><td colspan="2"><small>Good for ' + n('valid') + ' days</small></td></tr>';
+    $('sum').innerHTML = h;
+
+    var flag = '';
+    if (cost === 0) flag = '<span class="pill warn">Add costs to see a price</span>';
+    else if (effMargin < 10) flag = '<span class="pill bad">Margin under 10%</span>';
+    else if (effMargin < 18) flag = '<span class="pill warn">Thin margin</span>';
+    else flag = '<span class="pill good">Healthy margin</span>';
+    if (laborRev > 0 && n('crew') === 0) flag += ' <span class="pill warn">Labor carried at published rates</span>';
+    $('flag').innerHTML = flag;
+
+    window.__bid = { cost: cost, bid: bid, profit: profit, deposit: deposit, mat: mat, matInBid: matInBid, laborRev: laborRev, conc: conc, effMargin: effMargin, matRows: matRows, othRows: othRows };
+    save();
+  }
+
+  function snapshot() {
+    var o = { f: {}, mat: [], oth: [], autoLf: autoLf, autoSq: autoSq };
+    FIELDS.forEach(function (id) { var e = $(id); o.f[id] = e.type === 'checkbox' ? e.checked : e.value; });
+    rows('matT').forEach(function (r) { o.mat.push([r.name, r.qty, r.unit]); });
+    rows('othT').forEach(function (r) { o.oth.push([r.name, r.qty, r.unit]); });
+    return o;
+  }
+  function restore(o) {
+    FIELDS.forEach(function (id) { var e = $(id); if (!(id in o.f)) return; if (e.type === 'checkbox') e.checked = !!o.f[id]; else e.value = o.f[id]; });
+    autoLf = o.autoLf !== false; autoSq = o.autoSq !== false;
+    $('matT').querySelector('tbody').innerHTML = ''; $('othT').querySelector('tbody').innerHTML = '';
+    o.mat.forEach(function (r) { addRow($('matT').querySelector('tbody'), r[0], r[1], r[2]); });
+    o.oth.forEach(function (r) { addRow($('othT').querySelector('tbody'), r[0], r[1], r[2]); });
+    calc();
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(snapshot())); } catch (e) {} }
+  function toast(t) { var el = $('toast'); el.textContent = t; el.style.display = 'block'; setTimeout(function () { el.style.display = 'none'; }, 1800); }
+  function listSaved() { try { return JSON.parse(localStorage.getItem(LIST) || '{}'); } catch (e) { return {}; } }
+  function refreshSaved() {
+    var s = listSaved(), sel = $('saved'); sel.innerHTML = '<option value="">-</option>';
+    Object.keys(s).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = k; sel.appendChild(o); });
+  }
+
+  FIELDS.forEach(function (id) {
+    $(id).addEventListener('input', function () {
+      if (id === 'lf') autoLf = false; if (id === 'sqft') autoSq = false;
+      if (id === 'basis') autoLf = true; if (id === 'w' || id === 'l') { autoLf = true; autoSq = true; }
+      calc();
+    });
+  });
+  $('addMat').addEventListener('click', function () { addRow($('matT').querySelector('tbody'), '', 1, ''); });
+  $('addOth').addEventListener('click', function () { addRow($('othT').querySelector('tbody'), '', 1, ''); });
+  $('print').addEventListener('click', function () { window.print(); });
+  $('copy').addEventListener('click', function () {
+    var b = window.__bid, t = ['T Bucket Welding bid', ($('cust').value || 'Customer') + ' - ' + ($('job').value || 'Job'), $('w').value + ' x ' + $('l').value + ' ft, ' + $('h').value + ' ft eave', 'Bid price: ' + money(b.bid)];
+    if (b.deposit > 0) t.push('Deposit: ' + money(b.deposit));
+    if ($('custPays').checked && b.mat > 0) t.push('Materials due at delivery (customer pays): ' + money(b.mat));
+    t.push('Good for ' + n('valid') + ' days', $('notes').value);
+    var txt = t.join('\n');
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('Summary copied'); }).catch(function () { toast('Copy not available here'); });
+  });
+  $('reset').addEventListener('click', function () { if (confirm('Clear this bid and start over?')) { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); } });
+  $('save').addEventListener('click', function () {
+    var name = prompt('Name this bid', ($('cust').value || 'Customer') + ' - ' + ($('job').value || 'Job')); if (!name) return;
+    var s = listSaved(); s[name] = snapshot(); try { localStorage.setItem(LIST, JSON.stringify(s)); toast('Saved'); } catch (e) { toast('Could not save'); } refreshSaved(); $('saved').value = name;
+  });
+  $('saved').addEventListener('change', function () { var s = listSaved(); if (s[this.value]) restore(s[this.value]); });
+
+  var draft = null; try { draft = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (draft) restore(draft);
+  else { MAT_DEFAULT.forEach(function (x) { addRow($('matT').querySelector('tbody'), x, 1, ''); }); OTH_DEFAULT.forEach(function (x) { addRow($('othT').querySelector('tbody'), x, 1, ''); }); calc(); }
+  refreshSaved();
+})();
+</script>
+</body>
+</html>
